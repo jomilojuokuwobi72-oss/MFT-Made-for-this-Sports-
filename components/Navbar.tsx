@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Instagram } from "lucide-react";
 
 function TikTokIcon(props: React.SVGProps<SVGSVGElement>) {
@@ -26,8 +27,15 @@ export default function Navbar() {
         <div className="flex-1">
           <Link
             href="#home"
-            className="text-white font-extrabold tracking-tight text-xl"
+            className="flex items-center gap-3 text-white font-extrabold tracking-tight text-xl"
           >
+            <Image
+              src="/MFT BRAND OVERVIEW-01.PNG"
+              alt="MFT Logo"
+              width={40}
+              height={40}
+              className="h-10 w-auto"
+            />
             MFT {/*<span className="text-white/60">Sports</span>*/}
           </Link>
         </div>
