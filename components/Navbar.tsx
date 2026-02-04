@@ -48,7 +48,7 @@ export default function Navbar() {
         {/* RIGHT: Social Icons */}
         <div className="flex-1 flex justify-end items-center gap-4">
           <a
-            href="https://instagram.com/"
+            href="https://www.instagram.com/made4thisports?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
             target="_blank"
             rel="noreferrer"
             aria-label="Instagram"
@@ -58,7 +58,7 @@ export default function Navbar() {
           </a>
 
           <a
-            href="https://tiktok.com/"
+            href="https://www.tiktok.com/@made4thisports?_r=1&_t=ZS-93cyNaxSmcG"
             target="_blank"
             rel="noreferrer"
             aria-label="TikTok"
