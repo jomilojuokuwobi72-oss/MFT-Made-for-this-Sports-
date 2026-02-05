@@ -38,21 +38,17 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* RIGHT: Image */}
-          <div className="relative">
-            {/* subtle glow behind the image (optional but nice) */}
-            <div className="absolute -inset-6 rounded-[32px] bg-white/5 blur-2xl" />
-
-            <div className="relative overflow-hidden rounded-[32px] border border-white/10 bg-white/5">
-              <div className="relative aspect-[4/3] w-full">
-                <Image
-                  src="/football.jpg"
-                  alt="Football"
-                  fill
-                  priority
-                  className="object-cover"
-                />
-              </div>
+          {/* RIGHT: Logo */}
+          <div className="relative flex items-center justify-center">
+            <div className="relative w-full max-w-md">
+              <Image
+                src="/MFT BRAND OVERVIEW-01.PNG"
+                alt="MFT Logo"
+                width={500}
+                height={500}
+                priority
+                className="w-full h-auto"
+              />
             </div>
           </div>
         </div>
