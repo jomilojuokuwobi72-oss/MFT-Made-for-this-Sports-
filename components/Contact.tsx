@@ -14,7 +14,7 @@ export default function Contact() {
               <div className="text-sm text-white/60">Email</div>
               <a
                 href="mailto:hello@madeforthissports.com"
-                className="mt-2 block text-lg font-semibold hover:underline"
+                className="mt-2 block text-lg font-semibold hover:underline break-all"
               >
                 madeforthissports@gmail.com
               </a>
