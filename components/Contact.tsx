@@ -1,30 +1,39 @@
+import { Bounded } from "@/components/Bounded";
+
 export default function Contact() {
   return (
-    <section id="contact" className="bg-black text-white py-16">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-8 md:p-12">
-          <h2 className="text-3xl md:text-4xl font-extrabold">Contact</h2>
+    <Bounded id="contact" className="py-24 bg-background">
+      <div className="glass-container p-10 md:p-16 lg:p-20 text-center relative overflow-hidden">
+        {/* Background glow */}
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[400px] w-[400px] rounded-full bg-violet-500/10 blur-[100px] pointer-events-none" />
 
-          <p className="mt-3 text-white/80 max-w-2xl">
-            Want to partner, sponsor, or help build the community? Send a message.
+        <div className="relative z-10 max-w-3xl mx-auto">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tight text-white mb-6">
+            Get In Touch
+          </h2>
+
+          <div className="signal-line mx-auto mb-8" />
+
+          <p className="mt-6 text-slate-300 text-lg md:text-xl leading-relaxed font-medium">
+            Want to partner, sponsor, or help build the Made For This community? Send us a message.
           </p>
 
-          <div className="mt-8 grid gap-4 md:grid-cols-2">
-            <div className="rounded-2xl border border-white/10 bg-black/30 p-6">
-              <div className="text-sm text-white/60">Email</div>
+          <div className="mt-12 grid gap-6 md:grid-cols-2 text-left">
+            <div className="glass-container p-8 transition-colors hover:bg-white/5 group">
+              <div className="text-sm font-bold uppercase tracking-wider text-primary-violet mb-2">Email Us</div>
               <a
-                href="mailto:hello@madeforthissports.com"
-                className="mt-2 block text-lg font-semibold hover:underline"
+                href="mailto:madeforthissports@gmail.com"
+                className="block text-xl md:text-2xl font-bold text-white group-hover:text-primary-violet transition-colors"
               >
                 madeforthissports@gmail.com
               </a>
             </div>
 
-            <div className="rounded-2xl border border-white/10 bg-black/30 p-6">
-              <div className="text-sm text-white/60">Phone</div>
+            <div className="glass-container p-8 transition-colors hover:bg-white/5 group">
+              <div className="text-sm font-bold uppercase tracking-wider text-violet-400 mb-2">Call Us</div>
               <a
-                href="tel:+10000000000"
-                className="mt-2 block text-lg font-semibold hover:underline"
+                href="tel:+16827252801"
+                className="block text-xl md:text-2xl font-bold text-white group-hover:text-violet-300 transition-colors"
               >
                 +1 (682) 725-2801
               </a>
@@ -32,6 +41,6 @@ export default function Contact() {
           </div>
         </div>
       </div>
-    </section>
+    </Bounded>
   );
 }

@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import { Header } from "@/components/Header";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import News from "@/components/News";
@@ -8,7 +9,7 @@ import Footer from "@/components/Footer";
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-black text-white">
-      <Navbar />
+      <Header />
       <Hero />
       <About />
       <News />
