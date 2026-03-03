@@ -1,96 +1,114 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { Instagram } from "lucide-react";
+import Button from "@/components/Button";
+import WordMark from "@/components/WordMark";
+import { MdMenu, MdClose } from "react-icons/md";
+import clsx from "clsx";
+import { usePathname } from "next/navigation";
 
-function TikTokIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
-      <path d="M21 8.2c-1.9 0-3.7-.6-5.2-1.7v8.1c0 3.3-2.7 6-6 6s-6-2.7-6-6 2.7-6 6-6c.4 0 .8 0 1.2.1v3.2c-.4-.2-.8-.3-1.2-.3-1.5 0-2.8 1.2-2.8 2.8s1.2 2.8 2.8 2.8 2.8-1.2 2.8-2.8V2h3.2c.2 1.7 1.2 3.2 2.7 4 .9.5 1.9.8 3 .8v2.4z" />
-    </svg>
-  );
-}
-
-const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
+const navigation = [
+    { label: "About", link: "/about" },
+    { label: "Blog", link: "/blog" },
+    { label: "Join Waitlist", link: "/waitlist", isButton: true },
 ];
 
-export default function Navbar() {
-  return (
-    <header className="fixed top-0 z-50 w-full bg-black/70 backdrop-blur border-b border-white/10">
-      <nav className="mx-auto max-w-7xl px-6 py-4 flex items-center">
-        
-        {/* LEFT: Logo */}
-        <div className="flex-1">
-          <Link
-            href="#home"
-            className="flex items-center gap-3 text-white font-extrabold tracking-tight text-xl"
-          >
-            <Image
-              src="/MFT BRAND OVERVIEW-01.PNG"
-              alt="MFT Logo"
-              width={40}
-              height={40}
-              className="h-10 w-auto"
-            />
-            MFT {/*<span className="text-white/60">Sports</span>*/}
-          </Link>
-        </div>
+export default function NavBar() {
+    const [open, setOpen] = useState(false);
+    const pathname = usePathname();
 
-        {/* CENTER: Navigation */}
-        <div className="hidden md:flex flex-1 justify-center gap-10">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-sm font-medium text-white/80 hover:text-white transition"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </div>
+    return (
+        <nav className="px-4 py-4 md:px-6 w-full glass-container fixed top-0 z-50 rounded-none border-b border-transparent" aria-label="Main">
+            <div className="mx-auto flex max-w-7xl flex-col justify-between py-2 font-medium text-white md:flex-row md:items-center">
+                <div className="flex items-center justify-between z-50">
+                    <Link href="/" onClick={() => setOpen(false)}>
+                        <WordMark />
+                        <span className="sr-only">Made For This Home Page</span>
+                    </Link>
+                    <button
+                        type="button"
+                        className="block p-2 text-3xl text-white md:hidden"
+                        aria-expanded={open}
+                        onClick={() => setOpen(true)}
+                    >
+                        <MdMenu />
+                        <span className="sr-only">Open menu</span>
+                    </button>
+                </div>
 
-        {/* RIGHT: Social Icons */}
-        <div className="flex-1 flex justify-end items-center gap-4">
-          <a
-            href="https://www.instagram.com/made4thisports?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Instagram"
-            className="text-white/80 hover:text-white transition"
-          >
-            <Instagram className="h-5 w-5" />
-          </a>
+                {/* Mobile Nav */}
+                <div
+                    className={clsx(
+                        "fixed bottom-0 left-0 right-0 top-0 z-40 flex flex-col items-center justify-center bg-black/95 backdrop-blur-lg transition-all duration-300 ease-in-out md:hidden",
+                        open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none",
+                    )}
+                >
+                    <button
+                        type="button"
+                        className="fixed right-6 top-6 mb-4 block p-2 text-3xl text-white md:hidden"
+                        aria-expanded={open}
+                        onClick={() => setOpen(false)}
+                    >
+                        <MdClose />
+                        <span className="sr-only">Close menu</span>
+                    </button>
 
-          <a
-            href="https://www.tiktok.com/@made4thisports?_r=1&_t=ZS-93cyNaxSmcG"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="TikTok"
-            className="text-white/80 hover:text-white transition"
-          >
-            <TikTokIcon className="h-5 w-5" />
-          </a>
-        </div>
-      </nav>
+                    <div className="flex flex-col items-center gap-8 w-full px-6">
+                        {navigation.map((item) => {
+                            if (item.isButton) {
+                                return (
+                                    <Button
+                                        key={item.label}
+                                        href={item.link}
+                                        className="w-full max-w-sm mt-8"
+                                    >
+                                        {item.label}
+                                    </Button>
+                                );
+                            }
+                            return (
+                                <Link
+                                    key={item.label}
+                                    className="block text-3xl tracking-tight text-slate-300 hover:text-white transition-colors"
+                                    href={item.link}
+                                    onClick={() => setOpen(false)}
+                                    aria-current={pathname === item.link ? "page" : undefined}
+                                >
+                                    {item.label}
+                                </Link>
+                            );
+                        })}
+                    </div>
+                </div>
 
-      {/* Mobile Nav */}
-      <div className="md:hidden border-t border-white/10">
-        <div className="flex justify-center gap-6 py-3">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-sm font-medium text-white/80 hover:text-white transition"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </div>
-      </div>
-    </header>
-  );
+                {/* Desktop Nav */}
+                <ul className="hidden flex-row items-center gap-8 md:flex">
+                    {navigation.map((item) => {
+                        if (item.isButton) {
+                            return (
+                                <li key={item.label}>
+                                    <Button href={item.link}>
+                                        {item.label}
+                                    </Button>
+                                </li>
+                            );
+                        }
+
+                        return (
+                            <li key={item.label}>
+                                <Link
+                                    href={item.link}
+                                    className="inline-flex min-h-11 items-center text-slate-300 hover:text-white transition-colors"
+                                    aria-current={pathname === item.link ? "page" : undefined}
+                                >
+                                    {item.label}
+                                </Link>
+                            </li>
+                        );
+                    })}
+                </ul>
+            </div>
+        </nav>
+    );
 }
