@@ -55,7 +55,7 @@ export default function Hero() {
       function setupScrollAnimation() {
         const scroller = document.getElementById("main-scroll");
         const visionEl = document.getElementById("vision");
-        if (!scroller || !visionEl) return;
+        if (!scroller || !visionEl || !player) return;
 
         const vw = window.innerWidth;
         const vh = window.innerHeight;
