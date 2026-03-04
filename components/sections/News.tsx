@@ -165,14 +165,21 @@ export default function News() {
           wrapper.style.opacity = "1";
           wrapper.style.visibility = "visible";
 
-          // How far has the section bottom gone past the viewport bottom?
-          // Positive = section bottom is above viewport bottom (scrolling into Contact)
-          const overshoot = sr.bottom - se.bottom; // negative while section fills screen, goes positive as it exits
-          // Clamp: only apply when section bottom is above viewport bottom
-          const scrolledPast = Math.max(0, overshoot);
-          // Translate upward by that amount — whistle scrolls away with the section
-          wrapper.style.transform = scrolledPast > 0
-            ? `translateY(${-scrolledPast}px)`
+          // ── Entry: section top scrolling down into viewport ──────────────────
+          // While section top hasn't reached viewport top yet, the first panel
+          // is still entering. Offset whistle DOWN by that distance so it scrolls
+          // in from below, arriving at panel-0 (right side) right as panel fills screen.
+          const entryOffset = Math.max(0, se.top - sr.top);
+
+          // ── Exit: section bottom scrolling above viewport bottom ─────────────
+          // Once section bottom rises above viewport bottom (Contact entering),
+          // offset whistle UP so it appears to scroll away with the section.
+          const exitOffset = Math.max(0, sr.bottom - se.bottom);
+
+          const translateY = entryOffset > 0 ? entryOffset : -exitOffset;
+
+          wrapper.style.transform = translateY !== 0
+            ? `translateY(${translateY}px)`
             : "";
         }
       }
