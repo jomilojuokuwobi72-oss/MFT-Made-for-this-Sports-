@@ -14,8 +14,6 @@ export default function HomePage() {
   return (
     <main className="absolute bg-black inset-0 text-white selection:bg-brand-violet selection:text-white">
       {/* 3D Global Layer (Stationary Background) */}
-      <SceneContainer />
-
       {/* UI Content Layer (Scroller) */}
       {/* Navbar Overlay - Absolute top so it stays fixed to the viewport top but inside the rounded layout */}
       <div className="absolute top-0 left-0 right-0 z-50 pointer-events-auto">
@@ -32,7 +30,7 @@ export default function HomePage() {
         <ImageStack />
 
         {/* Sections that obscure the canvas must be pointer-events-auto */}
-        <div className="pointer-events-auto bg-brand-black relative z-20">
+        <div className="pointer-events-auto relative z-20">
           <About />
           <News />
           <Contact />

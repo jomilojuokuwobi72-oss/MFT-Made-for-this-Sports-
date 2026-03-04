@@ -14,7 +14,11 @@ export default function SceneContainer() {
     const groupRef = useRef<THREE.Group>(null);
 
     useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger);
         if (!groupRef.current) return;
+
+        const scroller = document.querySelector("#main-scroll");
+        if (!scroller) return;
 
         const ctx = gsap.context(() => {
             // Initially hide the whistle
@@ -29,7 +33,7 @@ export default function SceneContainer() {
                 const tl = gsap.timeline({
                     scrollTrigger: {
                         trigger: "#vision",
-                        scroller: "#main-scroll",
+                        scroller: scroller,
                         start: "top bottom",
                         end: "top center",
                         scrub: 1,
@@ -43,7 +47,7 @@ export default function SceneContainer() {
                 const tl2 = gsap.timeline({
                     scrollTrigger: {
                         trigger: "#imagestack",
-                        scroller: "#main-scroll",
+                        scroller: scroller,
                         start: "top bottom",
                         end: "top center",
                         scrub: 1,

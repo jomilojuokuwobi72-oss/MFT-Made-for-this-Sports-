@@ -12,7 +12,11 @@ export default function MFTScene() {
     const groupRef = useRef<THREE.Group>(null);
 
     useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger);
         if (!groupRef.current) return;
+
+        const scroller = document.querySelector("#main-scroll");
+        if (!scroller) return;
 
         const ctx = gsap.context(() => {
             // Intro Animation
@@ -40,7 +44,7 @@ export default function MFTScene() {
             const scrollTl = gsap.timeline({
                 scrollTrigger: {
                     trigger: ".hero-section",
-                    scroller: "#main-scroll",
+                    scroller: scroller,
                     start: "top top",
                     end: "bottom top",
                     scrub: 1.5,
