@@ -3,12 +3,12 @@ import Hero from "@/components/sections/Hero";
 import Vision from "@/components/sections/Vision";
 import ImageStack from "@/components/sections/ImageStack";
 import Customizer from "@/components/sections/Customizer";
-import CustomizerButton from "@/components/ui/CustomizerButton";
+// import CustomizerButton from "@/components/ui/CustomizerButton";
 import About from "@/components/sections/About";
 import News from "@/components/sections/News";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/layout/Footer";
-import SceneContainer from "@/components/3d/SceneContainer";
+// import SceneContainer from "@/components/3d/SceneContainer";
 
 export default function HomePage() {
   return (
@@ -39,7 +39,7 @@ export default function HomePage() {
       </div>
 
       {/* Global Slide-Over Customizer */}
-      <CustomizerButton />
+      {/* <CustomizerButton /> */}
       <Customizer />
     </main>
   );
