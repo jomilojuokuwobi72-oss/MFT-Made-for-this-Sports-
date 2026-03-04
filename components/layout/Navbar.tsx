@@ -7,15 +7,24 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import { InstagramIcon, TiktokIcon, Menu01Icon, CancelIcon } from "@hugeicons/core-free-icons";
 import clsx from "clsx";
 
-const navLinks = [
+type NavLink = {
+  label: string;
+  href?: string;
+  isCta?: boolean;
+};
+
+const navLinks: NavLink[] = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
   { label: "Events", href: "#news" },
-  { label: "Waitlist", href: "#waitlist", isCta: true },
+  { label: "Waitlist", isCta: true },
 ];
+
+import { useStore } from "@/store/useStore";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const { setWaitlistModalOpen } = useStore();
 
   return (
     <nav className="absolute top-0 z-50 w-full px-4 py-4 md:px-6 md:py-6" aria-label="Main">
@@ -57,20 +66,22 @@ export default function Navbar() {
             {navLinks.map((item) => {
               if (item.isCta) {
                 return (
-                  <Link
+                  <button
                     key={item.label}
-                    href={item.href}
-                    onClick={() => setOpen(false)}
+                    onClick={() => {
+                      setOpen(false);
+                      setWaitlistModalOpen(true);
+                    }}
                     className="relative flex h-fit w-fit items-center justify-center overflow-hidden rounded-full border border-sky-100/20 bg-brand-violet/20 px-8 py-4 text-2xl font-semibold outline-none ring-brand-cyan transition-colors after:absolute after:inset-0 after:-z-10 after:animate-pulse after:rounded-full after:bg-brand-cyan/20 after:bg-opacity-0 after:blur-md after:transition-all after:duration-500 hover:border-sky-200/40 hover:text-brand-cyan focus:ring-2"
                   >
                     {item.label}
-                  </Link>
+                  </button>
                 );
               }
               return (
                 <Link
                   key={item.label}
-                  href={item.href}
+                  href={item.href || "#"}
                   className="block px-3 text-3xl font-bold tracking-tight text-white/80 transition-colors hover:text-white"
                   onClick={() => setOpen(false)}
                 >
@@ -108,12 +119,12 @@ export default function Navbar() {
             if (item.isCta) {
               return (
                 <li key={item.label}>
-                  <Link
-                    href={item.href}
+                  <button
+                    onClick={() => setWaitlistModalOpen(true)}
                     className="relative flex h-fit w-fit items-center justify-center overflow-hidden rounded-full border border-sky-100/20 bg-brand-violet/20 px-6 py-2 outline-none ring-brand-cyan transition-colors after:absolute after:inset-0 after:-z-10 after:animate-pulse after:rounded-full after:bg-brand-cyan/20 after:bg-opacity-0 after:blur-md after:transition-all after:duration-500 hover:border-sky-200/40 hover:text-brand-cyan focus:ring-2"
                   >
                     {item.label}
-                  </Link>
+                  </button>
                 </li>
               );
             }
@@ -121,7 +132,7 @@ export default function Navbar() {
             return (
               <li key={item.label}>
                 <Link
-                  href={item.href}
+                  href={item.href || "#"}
                   className="inline-flex min-h-11 items-center font-medium text-white/80 transition-colors hover:text-white"
                 >
                   {item.label}

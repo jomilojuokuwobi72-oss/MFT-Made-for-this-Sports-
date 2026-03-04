@@ -13,7 +13,8 @@ html {
 }
 
 :root {
-  --background: #e66132; /* Default to Orange */
+  --background: #e66132;
+  /* Default to Orange */
   --foreground: #ffffff;
 }
 
@@ -59,10 +60,13 @@ body {
   }
 
   @keyframes borderPulse {
-    0%, 100% {
+
+    0%,
+    100% {
       border-color: rgba(249, 115, 22, 0.2);
       transform: scale(1);
     }
+
     50% {
       border-color: rgba(249, 115, 22, 0.4);
       transform: scale(1.02);
@@ -70,9 +74,12 @@ body {
   }
 
   @keyframes pulseSlow {
-    0%, 100% {
+
+    0%,
+    100% {
       opacity: 0.5;
     }
+
     50% {
       opacity: 0.8;
     }

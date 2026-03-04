@@ -11,6 +11,8 @@ interface StoreState {
     setActiveMetalness: (metalness: number) => void;
     setActiveEnv: (env: string) => void;
     setCustomizerOpen: (isOpen: boolean) => void;
+    isWaitlistModalOpen: boolean;
+    setWaitlistModalOpen: (isOpen: boolean) => void;
 }
 
 export const useStore = create<StoreState>((set) => ({
@@ -25,4 +27,7 @@ export const useStore = create<StoreState>((set) => ({
     setActiveMetalness: (metalness) => set({ activeMetalness: metalness }),
     setActiveEnv: (env) => set({ activeEnv: env }),
     setCustomizerOpen: (isOpen) => set({ isCustomizerOpen: isOpen }),
+
+    isWaitlistModalOpen: false,
+    setWaitlistModalOpen: (isOpen) => set({ isWaitlistModalOpen: isOpen }),
 }));

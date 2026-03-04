@@ -11,6 +11,8 @@ import * as THREE from "three";
 import { ChevronRight } from "lucide-react";
 import { Bounded } from "@/components/ui/Bounded";
 
+useGLTF.preload("/models/whistle.glb");
+
 // ── 3D Whistle ────────────────────────────────────────────────────────────────
 function WhistleModel({
   scrollProgress,
@@ -57,8 +59,6 @@ function WhistleModel({
     </group>
   );
 }
-
-// ── Portal canvas — renders into document.body, scrolls with section via translateY ─
 function WhistlePortal({
   scrollProgress,
   panelIndex,
@@ -137,13 +137,6 @@ export default function News() {
     const section = sectionRef.current;
     if (!scroller || !section) return;
 
-    // ── rAF loop: drives opacity + translateY on the portal wrapper ─────────────
-    // Logic mirrors how Hero.tsx scrolls the player image with the Vision section:
-    //  • Before section: hidden
-    //  • Section entering → section bottom at viewport bottom: fully visible, translateY = 0
-    //  • Section bottom scrolls above viewport bottom (entering Contact): translateY offsets
-    //    upward so the whistle appears to scroll away with the section
-    //  • Section fully above viewport: hidden
     let rafId: number;
     const tick = () => {
       const wrapper = wrapperRef.current;
@@ -165,10 +158,6 @@ export default function News() {
           wrapper.style.opacity = "1";
           wrapper.style.visibility = "visible";
 
-          // ── Entry: section top scrolling down into viewport ──────────────────
-          // While section top hasn't reached viewport top yet, the first panel
-          // is still entering. Offset whistle DOWN by that distance so it scrolls
-          // in from below, arriving at panel-0 (right side) right as panel fills screen.
           const entryOffset = Math.max(0, se.top - sr.top);
 
           // ── Exit: section bottom scrolling above viewport bottom ─────────────

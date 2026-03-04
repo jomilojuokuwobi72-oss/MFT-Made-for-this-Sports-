@@ -3,31 +3,14 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { joinWaitlist } from "@/app/actions/waitlist";
+
+
+import { useStore } from "@/store/useStore";
 
 export default function Footer() {
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-  const [errorMessage, setErrorMessage] = useState("");
+  const { setWaitlistModalOpen } = useStore();
 
-  async function onSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    setStatus("loading");
-    setErrorMessage("");
 
-    const result = await joinWaitlist(email);
-
-    if (result.error) {
-      setStatus("error");
-      setErrorMessage(result.error);
-      setTimeout(() => setStatus("idle"), 4000);
-      return;
-    }
-
-    setStatus("success");
-    setEmail("");
-    setTimeout(() => setStatus("idle"), 4000);
-  }
 
   return (
     <footer id="waitlist" className="relative overflow-hidden bg-brand-black text-white pt-24 pb-12">
@@ -46,44 +29,20 @@ export default function Footer() {
             </p>
           </div>
 
-          <form onSubmit={onSubmit} className="relative w-full max-w-md md:ml-auto">
-            <div className="relative flex items-center overflow-hidden rounded-full border border-white/10 bg-white/5 backdrop-blur-sm transition-colors focus-within:border-brand-cyan/50 focus-within:bg-white/10">
-              <input
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                type="email"
-                required
-                disabled={status === "loading" || status === "success"}
-                placeholder="Enter your email"
-                className="w-full bg-transparent px-6 py-4 text-white placeholder-white/40 outline-none"
-              />
-              <button
-                type="submit"
-                disabled={status === "loading" || status === "success"}
-                className="group relative mr-2 flex h-10 w-10 items-center justify-center rounded-full bg-brand-cyan text-brand-black transition-transform hover:scale-105 active:scale-95 disabled:opacity-50"
-              >
-                {status === "loading" ? (
-                  <div className="h-5 w-5 animate-spin rounded-full border-2 border-brand-black border-r-transparent" />
-                ) : status === "success" ? (
-                  <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                ) : (
-                  <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-0.5" />
-                )}
-              </button>
-            </div>
-            {status === "success" && (
-              <p className="absolute -bottom-8 left-0 text-sm font-medium text-brand-cyan">
-                You&apos;re on the list!
-              </p>
-            )}
-            {status === "error" && (
-              <p className="absolute -bottom-8 left-0 text-sm font-medium text-red-400">
-                {errorMessage}
-              </p>
-            )}
-          </form>
+          <div className="relative w-full max-w-md md:ml-auto">
+            {/* Fake input trigger */}
+            <button
+              onClick={() => setWaitlistModalOpen(true)}
+              className="group relative flex w-full items-center overflow-hidden rounded-full border border-white/10 bg-white/5 backdrop-blur-sm transition-colors hover:border-brand-cyan/50 hover:bg-white/10 cursor-pointer text-left"
+            >
+              <div className="w-full bg-transparent px-6 py-4 text-white/40 pointer-events-none">
+                Enter your email
+              </div>
+              <div className="relative mr-2 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-cyan text-brand-black transition-transform group-hover:scale-105 group-active:scale-95">
+                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-0.5" />
+              </div>
+            </button>
+          </div>
         </div>
 
         {/* Divider */}

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
 import ScrollContext from "@/components/layout/ScrollContext";
+import WaitlistModal from "@/components/ui/WaitlistModal";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -27,6 +28,7 @@ export default function RootLayout({
         <div className="relative w-full h-full max-w-[1920px] mx-auto bg-transparent rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-white/5">
           <ScrollContext>
             {children}
+            <WaitlistModal />
           </ScrollContext>
         </div>
       </body>
