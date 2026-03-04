@@ -21,7 +21,8 @@ function WhistleModel({
 }) {
   const groupRef = useThreeRef<THREE.Group>(null);
   const currentX = useThreeRef(2.2);
-  const TARGETS = [2.2, -2.2, 2.2, -2.2];
+  // Slightly inside viewport so model is always fully visible
+  const TARGETS = [2.0, -2.0, 2.0, -2.0];
   const { scene } = useGLTF("/models/whistle.glb");
 
   useThreeEffect(() => {
@@ -57,27 +58,31 @@ function WhistleModel({
   );
 }
 
-// ── Portal canvas — renders into document.body, zero scroller interference ────
+// ── Portal canvas — renders into document.body, scrolls with section via translateY ─
 function WhistlePortal({
   scrollProgress,
   panelIndex,
-  visible,
+  wrapperRef,
 }: {
   scrollProgress: React.MutableRefObject<number>;
   panelIndex: React.MutableRefObject<number>;
-  visible: boolean;
+  wrapperRef: React.RefObject<HTMLDivElement | null>;
 }) {
   const [mounted, setMounted] = useState(false);
   useEffect(() => { setMounted(true); }, []);
-  if (!mounted || !visible) return null;
+  if (!mounted) return null;
 
   return createPortal(
     <div
+      ref={wrapperRef as React.RefObject<HTMLDivElement>}
       style={{
         position: "fixed",
         inset: 0,
         zIndex: 15,
         pointerEvents: "none",
+        // opacity/translateY driven imperatively via ref — no React state lag
+        opacity: 0,
+        willChange: "transform, opacity",
       }}
     >
       <div style={{
@@ -123,7 +128,8 @@ export default function News() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const scrollProgress = useRef(0);
   const panelIndex = useRef(0);
-  const [visible, setVisible] = useState(false);
+  // Ref to the portal wrapper div — driven imperatively so no React state lag
+  const wrapperRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -131,14 +137,48 @@ export default function News() {
     const section = sectionRef.current;
     if (!scroller || !section) return;
 
-    // ── Visibility: strict rect-based check ──────────────────────────────────
-    const checkVisible = () => {
-      const sr = scroller.getBoundingClientRect();
-      const se = section.getBoundingClientRect();
-      setVisible(se.bottom > sr.top && se.top < sr.bottom);
+    // ── rAF loop: drives opacity + translateY on the portal wrapper ─────────────
+    // Logic mirrors how Hero.tsx scrolls the player image with the Vision section:
+    //  • Before section: hidden
+    //  • Section entering → section bottom at viewport bottom: fully visible, translateY = 0
+    //  • Section bottom scrolls above viewport bottom (entering Contact): translateY offsets
+    //    upward so the whistle appears to scroll away with the section
+    //  • Section fully above viewport: hidden
+    let rafId: number;
+    const tick = () => {
+      const wrapper = wrapperRef.current;
+      if (wrapper) {
+        const sr = scroller.getBoundingClientRect();
+        const se = section.getBoundingClientRect();
+        const vh = sr.height;
+
+        // Has section started entering from below?
+        const hasEntered = se.top < sr.bottom;
+        // Is section still at least partially on-screen from above?
+        const notGoneAbove = se.bottom > sr.top;
+
+        if (!hasEntered || !notGoneAbove) {
+          // Hidden — either not yet reached or fully scrolled past
+          wrapper.style.opacity = "0";
+          wrapper.style.visibility = "hidden";
+        } else {
+          wrapper.style.opacity = "1";
+          wrapper.style.visibility = "visible";
+
+          // How far has the section bottom gone past the viewport bottom?
+          // Positive = section bottom is above viewport bottom (scrolling into Contact)
+          const overshoot = sr.bottom - se.bottom; // negative while section fills screen, goes positive as it exits
+          // Clamp: only apply when section bottom is above viewport bottom
+          const scrolledPast = Math.max(0, overshoot);
+          // Translate upward by that amount — whistle scrolls away with the section
+          wrapper.style.transform = scrolledPast > 0
+            ? `translateY(${-scrolledPast}px)`
+            : "";
+        }
+      }
+      rafId = requestAnimationFrame(tick);
     };
-    checkVisible();
-    scroller.addEventListener("scroll", checkVisible, { passive: true });
+    rafId = requestAnimationFrame(tick);
 
     // ── Scroll progress for spin ─────────────────────────────────────────────
     ScrollTrigger.create({
@@ -173,7 +213,7 @@ export default function News() {
     });
 
     return () => {
-      scroller.removeEventListener("scroll", checkVisible);
+      cancelAnimationFrame(rafId);
       ScrollTrigger.getAll().forEach(t => t.kill());
     };
   }, []);
@@ -194,11 +234,11 @@ export default function News() {
         </div>
       </div>
 
-      {/* Portal canvas — lives in document.body, never inside scroller */}
+      {/* Portal canvas — lives in document.body, scrolls away with section via rAF */}
       <WhistlePortal
         scrollProgress={scrollProgress}
         panelIndex={panelIndex}
-        visible={visible}
+        wrapperRef={wrapperRef}
       />
 
       {/* Content panels */}

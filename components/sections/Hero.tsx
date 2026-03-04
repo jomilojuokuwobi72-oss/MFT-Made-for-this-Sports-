@@ -224,7 +224,7 @@ export default function Hero() {
             </span>
           </h2>
 
-          <p className="hero-body mt-8 max-w-lg text-xl md:text-2xl text-white/80 leading-relaxed font-medium">
+          <p className="hero-body mt-1 max-w-lg text-xl md:text-2xl text-white/80 leading-relaxed">
             A new era of football scouting and player progression. Join the movement and prove you&apos;re{" "}
             <span className="font-bold text-brand-violet">MADE FOR THIS</span>.
           </p>

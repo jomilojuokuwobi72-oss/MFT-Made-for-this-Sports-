@@ -64,6 +64,7 @@ export default function ImageStack() {
             scrollTrigger: {
                 trigger: section,
                 scroller,
+                pinnedContainer: scroller,
                 start: "top top",
                 end: () => `+=${totalScroll}`,
                 scrub: 0.5,  // Low value = very responsive, almost no lag
