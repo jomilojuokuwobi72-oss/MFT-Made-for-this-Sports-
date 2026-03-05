@@ -178,7 +178,7 @@ export default function About() {
     <Bounded
       as="section"
       id="about"
-      className="relative bg-brand-black text-white overflow-hidden py-32 md:py-48"
+      className="relative bg-brand-black text-white overflow-hidden py-32 md:py-48" style={{ position: "relative", zIndex: 40 }}
     >
       {/* Background orbs */}
       <div className="orb-1 absolute -top-40 -right-40 w-[70vw] h-[70vw] rounded-full pointer-events-none"

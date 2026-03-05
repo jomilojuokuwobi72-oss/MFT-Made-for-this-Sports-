@@ -4,7 +4,6 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { Bounded } from "@/components/ui/Bounded";
 
 const images = [
     { src: "/images/athlete_preparation_1772618686160.png", label: "PREPARE", number: "01" },
@@ -14,11 +13,9 @@ const images = [
     { src: "/images/athlete_action_1772618445997.png", label: "RISE", number: "05" },
     { src: "/images/athlete_celebration_1772618704087.png", label: "WIN", number: "06" },
     { src: "/images/athlete_preparation_1772618686160.png", label: "LEGACY", number: "07" },
-    { src: "/images/athlete_action_1772618445997.png", label: "MFT", number: "08" },
 ];
 
-// Diagonal stagger offsets — creates the cascade waterfall look
-const topOffsets = [20, 80, 140, 60, 100, 30, 110, 50];
+const topOffsets = [20, 80, 140, 60, 100, 30, 110];
 
 export default function ImageStack() {
     const sectionRef = useRef<HTMLDivElement>(null);
@@ -33,126 +30,147 @@ export default function ImageStack() {
 
         const cards = gsap.utils.toArray<HTMLElement>(".img-card", track);
 
-        // ── Step 1: Cards start invisible and staggered-reveal on scroll-in ──────
-        // Each card flies up from below with a tight stagger — fluid, no lag
-        gsap.set(cards, { y: 80, opacity: 0 });
-
+        // Entrance — opacity only, marginTop offsets must not be touched
+        gsap.set(cards, { opacity: 0 });
         gsap.to(cards, {
-            y: 0,
             opacity: 1,
             stagger: 0.08,
-            ease: "power3.out",
+            ease: "power2.out",
             duration: 0.6,
             scrollTrigger: {
                 trigger: section,
                 scroller,
                 start: "top 75%",
                 toggleActions: "play none none reverse",
-                // No scrub here — this is a one-shot entrance, not scrubbed
             },
         });
 
-        // ── Step 2: Horizontal scroll — pin section, drag track left ─────────────
-        // Wait for layout to be ready before measuring
-        ScrollTrigger.refresh();
-
-        const totalScroll = track.scrollWidth - window.innerWidth + 96;
+        // The horizontal distance we need to travel:
+        // We want x to go from 0 to -(trackWidth - viewportWidth)
+        // so the last card's RIGHT edge reaches the LEFT edge of viewport.
+        // Then we add one extra viewport width so it goes fully offscreen.
+        const getTravelDist = () => {
+            return track.scrollWidth; // full track width = all cards fully exit left
+        };
 
         gsap.to(track, {
-            x: -totalScroll,
-            ease: "none",  // CRITICAL: ease:none = perfectly 1:1 with scroll, no drag
+            x: () => -getTravelDist(),
+            ease: "none",
             scrollTrigger: {
                 trigger: section,
                 scroller,
-                pinnedContainer: scroller,
                 start: "top top",
-                end: () => `+=${totalScroll}`,
-                scrub: 0.5,  // Low value = very responsive, almost no lag
+                end: () => `+=${getTravelDist()}`,
+                scrub: 0.5,           // tight scrub = 1:1 with scroll, no drag
                 pin: true,
+                pinSpacing: true,
                 anticipatePin: 1,
                 invalidateOnRefresh: true,
             },
         });
 
-        // ── Step 3: Subtle per-card vertical parallax (very gentle) ──────────────
-        cards.forEach((card, i) => {
-            const depth = ((i % 3) - 1) * 15; // -15, 0, or +15px — very subtle
-            if (depth === 0) return;
-            gsap.to(card, {
-                y: depth,
-                ease: "none",
-                scrollTrigger: {
-                    trigger: section,
-                    scroller,
-                    start: "top top",
-                    end: () => `+=${totalScroll}`,
-                    scrub: true,
-                },
-            });
-        });
-
     }, { scope: sectionRef });
 
     return (
-        <Bounded
-            as="section"
+        <section
             id="imagestack"
             ref={sectionRef}
-            className="relative bg-transparent text-white"
-            style={{ minHeight: "100vh" }}
+            style={{
+                position: "relative",
+                zIndex: 30,
+                backgroundColor: "#080810",
+                width: "100%",
+                minHeight: "100vh",
+                overflow: "hidden",
+            }}
         >
-            {/* Labels */}
-            <div className="absolute top-10 left-0 right-0 flex items-center justify-between px-8 z-20 pointer-events-none">
-                <span className="font-mono text-xs text-white/30 tracking-[0.3em] uppercase">The Journey</span>
-                <span className="font-mono text-xs text-white/30 tracking-[0.3em] uppercase">08 Frames</span>
+            <div style={{
+                position: "absolute", top: 40, left: 0, right: 0,
+                display: "flex", justifyContent: "space-between",
+                padding: "0 32px", zIndex: 20, pointerEvents: "none",
+            }}>
+                <span style={{ fontFamily: "monospace", fontSize: 10, color: "rgba(255,255,255,0.3)", letterSpacing: "0.3em", textTransform: "uppercase" }}>The Journey</span>
+                <span style={{ fontFamily: "monospace", fontSize: 10, color: "rgba(255,255,255,0.3)", letterSpacing: "0.3em", textTransform: "uppercase" }}>07 Frames</span>
             </div>
 
-            {/* Track */}
             <div
                 ref={trackRef}
-                className="flex items-start gap-4 pl-16 pr-24 pt-24 pb-12"
-                style={{ width: "max-content", willChange: "transform" }}
+                style={{
+                    display: "flex",
+                    alignItems: "flex-start",
+                    gap: 16,
+                    paddingLeft: 64,
+                    paddingRight: 96,
+                    paddingTop: 96,
+                    paddingBottom: 48,
+                    width: "max-content",
+                    willChange: "transform",
+                }}
             >
                 {images.map((img, i) => (
                     <div
                         key={i}
-                        className="img-card relative flex-shrink-0 group cursor-pointer"
+                        className="img-card group"
                         style={{
+                            position: "relative",
+                            flexShrink: 0,
                             width: "clamp(200px, 21vw, 300px)",
-                            marginTop: `${topOffsets[i]}px`,
+                            marginTop: topOffsets[i],
+                            cursor: "pointer",
                         }}
                     >
                         <div
-                            className="relative overflow-hidden rounded-2xl border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.6)] group-hover:border-white/25 transition-all duration-500"
-                            style={{ aspectRatio: "3/4" }}
+                            style={{
+                                position: "relative",
+                                overflow: "hidden",
+                                borderRadius: 16,
+                                border: "1px solid rgba(255,255,255,0.1)",
+                                aspectRatio: "3/4",
+                                boxShadow: "0 20px 50px rgba(0,0,0,0.6)",
+                                transition: "border-color 0.5s",
+                            }}
+                            className="group-hover:border-white/25"
                         >
                             <img
                                 src={img.src}
                                 alt={img.label}
-                                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-[1.04] group-hover:scale-110"
+                                className="grayscale group-hover:grayscale-0 transition-all duration-700"
+                                style={{
+                                    width: "100%", height: "100%",
+                                    objectFit: "cover",
+                                    transform: "scale(1.04)",
+                                    transition: "transform 0.7s ease, filter 0.7s ease",
+                                }}
+                                onMouseEnter={e => (e.currentTarget.style.transform = "scale(1.10)")}
+                                onMouseLeave={e => (e.currentTarget.style.transform = "scale(1.04)")}
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/5 to-transparent" />
-
-                            {/* Violet sweep on hover */}
-                            <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-brand-violet scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-
-                            {/* Label */}
-                            <div className="absolute bottom-0 left-0 right-0 p-5">
-                                <p className="font-black text-lg uppercase tracking-tighter leading-none translate-y-1 group-hover:translate-y-0 transition-transform duration-300">
+                            <div style={{
+                                position: "absolute", inset: 0,
+                                background: "linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.05) 50%, transparent 100%)",
+                            }} />
+                            <div
+                                className="scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"
+                                style={{
+                                    position: "absolute", bottom: 0, left: 0, right: 0,
+                                    height: 3, backgroundColor: "#FF5500",
+                                    borderRadius: "0 0 16px 16px",
+                                }}
+                            />
+                            <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: 20 }}>
+                                <p
+                                    className="translate-y-1 group-hover:translate-y-0 transition-transform duration-300"
+                                    style={{ fontWeight: 900, fontSize: 18, textTransform: "uppercase", letterSpacing: "-0.03em", lineHeight: 1, color: "#fff" }}
+                                >
                                     {img.label}
                                 </p>
                             </div>
-
-                            {/* Number */}
-                            <div className="absolute top-4 left-4">
-                                <span className="font-mono text-[10px] text-white/30">{img.number}</span>
+                            <div style={{ position: "absolute", top: 16, left: 16 }}>
+                                <span style={{ fontFamily: "monospace", fontSize: 10, color: "rgba(255,255,255,0.3)" }}>{img.number}</span>
                             </div>
                         </div>
                     </div>
                 ))}
             </div>
-
-            <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black/30 to-transparent pointer-events-none" />
-        </Bounded>
+        </section>
     );
 }

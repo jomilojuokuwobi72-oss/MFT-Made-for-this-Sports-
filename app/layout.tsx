@@ -12,7 +12,34 @@ const dmSans = DM_Sans({
 
 export const metadata: Metadata = {
   title: "MFT - Made For This Sports",
-  description: "A football community built to spotlight talent.",
+  description: "A football community built to spotlight talent. We build the architecture for your athletic legacy.",
+  keywords: ["Football", "Sports", "Talent Discovery", "Athletics", "MFT", "Made For This"],
+  openGraph: {
+    title: "MFT - Made For This Sports",
+    description: "A football community built to spotlight talent. We build the architecture for your athletic legacy.",
+    url: "https://madeforthis.sports",
+    siteName: "MFT Sports",
+    images: [
+      {
+        url: "/MFT BRAND OVERVIEW-01.PNG",
+        width: 800,
+        height: 600,
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "MFT - Made For This Sports",
+    description: "A football community built to spotlight talent. We build the architecture for your athletic legacy.",
+    images: ["/MFT BRAND OVERVIEW-01.PNG"],
+  },
+  icons: {
+    icon: "/MFT BRAND OVERVIEW-01.PNG",
+    shortcut: "/MFT BRAND OVERVIEW-01.PNG",
+    apple: "/MFT BRAND OVERVIEW-01.PNG",
+  },
 };
 
 export default function RootLayout({
