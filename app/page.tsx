@@ -1,3 +1,5 @@
+"use client";
+
 import Navbar from "@/components/layout/Navbar";
 import Hero from "@/components/sections/Hero";
 import Vision from "@/components/sections/Vision";
@@ -9,6 +11,10 @@ import News from "@/components/sections/News";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/layout/Footer";
 // import SceneContainer from "@/components/3d/SceneContainer";
+import { useGLTF } from "@react-three/drei";
+
+// Preload 3D model at page load so it's cached before user scrolls to News
+useGLTF.preload("/models/whistle.glb");
 
 export default function HomePage() {
   return (
