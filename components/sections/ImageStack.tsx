@@ -45,13 +45,10 @@ export default function ImageStack() {
             },
         });
 
-        // The horizontal distance we need to travel:
-        // We want x to go from 0 to -(trackWidth - viewportWidth)
-        // so the last card's RIGHT edge reaches the LEFT edge of viewport.
-        // Then we add one extra viewport width so it goes fully offscreen.
-        const getTravelDist = () => {
-            return track.scrollWidth; // full track width = all cards fully exit left
-        };
+        // Travel distance: when x = -(trackWidth - viewportWidth),
+        // the last card's right edge aligns with viewport right edge.
+        // All cards have scrolled through, last card just visible.
+        const getTravelDist = () => track.scrollWidth - section.clientWidth;
 
         gsap.to(track, {
             x: () => -getTravelDist(),
@@ -61,7 +58,7 @@ export default function ImageStack() {
                 scroller,
                 start: "top top",
                 end: () => `+=${getTravelDist()}`,
-                scrub: 0.5,           // tight scrub = 1:1 with scroll, no drag
+                scrub: 1,
                 pin: true,
                 pinSpacing: true,
                 anticipatePin: 1,
@@ -84,6 +81,7 @@ export default function ImageStack() {
                 overflow: "hidden",
             }}
         >
+            {/* Corner labels */}
             <div style={{
                 position: "absolute", top: 40, left: 0, right: 0,
                 display: "flex", justifyContent: "space-between",
@@ -93,6 +91,7 @@ export default function ImageStack() {
                 <span style={{ fontFamily: "monospace", fontSize: 10, color: "rgba(255,255,255,0.3)", letterSpacing: "0.3em", textTransform: "uppercase" }}>07 Frames</span>
             </div>
 
+            {/* Scrolling track */}
             <div
                 ref={trackRef}
                 style={{
@@ -148,6 +147,7 @@ export default function ImageStack() {
                                 position: "absolute", inset: 0,
                                 background: "linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.05) 50%, transparent 100%)",
                             }} />
+                            {/* Orange accent line on hover */}
                             <div
                                 className="scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"
                                 style={{

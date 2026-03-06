@@ -36,15 +36,13 @@ export default function About() {
     const scroller = document.getElementById("main-scroll");
     if (!scroller || !containerRef.current) return;
 
-    // ── Heading: each WORD slides up staggered (not chars — too many) ─────────
-    // We manually split the heading words for the animation
+    // ── Heading words slide up ────────────────────────────────────────────────
     const headingWords = containerRef.current.querySelectorAll(".heading-word");
     if (headingWords.length > 0) {
       gsap.set(headingWords, { y: "105%", opacity: 0 });
       gsap.to(headingWords, {
-        y: 0,
-        opacity: 1,
-        stagger: 0.07,        // tight stagger between words
+        y: 0, opacity: 1,
+        stagger: 0.07,
         ease: "power4.out",
         duration: 0.9,
         scrollTrigger: {
@@ -52,7 +50,6 @@ export default function About() {
           scroller,
           start: "top 80%",
           toggleActions: "play none none reverse",
-          // toggleActions not scrub — so it plays fully and crisply
         },
       });
     }
@@ -99,7 +96,7 @@ export default function About() {
       },
     });
 
-    // ── Cards: each enters from below with a staggered delay ─────────────────
+    // ── Cards enter from below ────────────────────────────────────────────────
     const cardEls = containerRef.current.querySelectorAll(".about-card");
     gsap.set(cardEls, { y: 60, opacity: 0 });
     gsap.to(cardEls, {
@@ -115,7 +112,7 @@ export default function About() {
       },
     });
 
-    // ── Image parallax inside each card (scrubbed) ────────────────────────────
+    // ── Image parallax inside each card ──────────────────────────────────────
     cardEls.forEach((card) => {
       const img = card.querySelector(".card-img-inner");
       if (!img) return;
@@ -129,7 +126,7 @@ export default function About() {
             scroller,
             start: "top bottom",
             end: "bottom top",
-            scrub: true,   // scrub:true = perfectly 1:1, zero lag
+            scrub: true,
           },
         }
       );
@@ -150,7 +147,7 @@ export default function About() {
       });
     });
 
-    // ── Background orbs gentle parallax ──────────────────────────────────────
+    // ── Background orbs parallax ──────────────────────────────────────────────
     gsap.to(".orb-1", {
       y: -160, ease: "none",
       scrollTrigger: {
@@ -175,10 +172,13 @@ export default function About() {
   }, { scope: containerRef });
 
   return (
+    // zIndex: 40 so About slides up over ImageStack (zIndex: 30) as a curtain
+    // No overflow-hidden — needed so parallax orbs can move freely outside bounds
     <Bounded
       as="section"
       id="about"
-      className="relative bg-brand-black text-white overflow-hidden py-32 md:py-48" style={{ position: "relative", zIndex: 40 }}
+      className="relative bg-brand-black text-white py-32 md:py-48"
+      style={{ position: "relative", zIndex: 40 }}
     >
       {/* Background orbs */}
       <div className="orb-1 absolute -top-40 -right-40 w-[70vw] h-[70vw] rounded-full pointer-events-none"
@@ -200,7 +200,6 @@ export default function About() {
 
         {/* ── Giant Heading ── */}
         <div className="about-heading-wrap mb-4 overflow-hidden">
-          {/* Each word is wrapped in overflow:hidden so it clips cleanly */}
           <h2 className="about-heading text-[12vw] md:text-[11vw] leading-[0.88] font-black uppercase tracking-tighter text-white">
             {["READY", "FOR"].map((word) => (
               <span key={word} className="inline-block overflow-hidden mr-[0.2em]">
@@ -267,7 +266,6 @@ export default function About() {
               className="about-card group relative flex flex-col"
               style={{ marginTop: i === 1 ? "3rem" : i === 2 ? "6rem" : 0 }}
             >
-              {/* Image with parallax inner */}
               <div className="relative overflow-hidden rounded-2xl mb-6" style={{ aspectRatio: "4/5" }}>
                 <div className="card-img-inner absolute inset-0 scale-[1.15]">
                   <Image
