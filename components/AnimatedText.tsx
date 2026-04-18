@@ -5,7 +5,7 @@ import React from "react";
 interface AnimatedTextProps {
   text: string;
   className?: string;
-  animationClass: "animate-blur-in-right" | "animate-bounce-in" | "animate-blur-drop";
+  animationClass: "animate-blur-in-right" | "animate-bounce-in" | "animate-blur-drop" | "animate-slide-up";
   staggerDelay?: number;
   duration?: number;
 }

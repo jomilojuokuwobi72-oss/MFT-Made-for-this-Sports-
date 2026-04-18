@@ -43,21 +43,21 @@ export default function Events() {
   return (
     <section id="events" className="py-24 bg-black text-white noise-bg">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div className="flex flex-col gap-12 mb-40">
           <div>
-            <AnimatedText 
-              text="Upcoming Events" 
-              animationClass="animate-bounce-in" 
-              className="text-5xl md:text-7xl mb-4 font-secondary"
-              staggerDelay={0.08}
+            <AnimatedText
+              text="Upcoming Events"
+              animationClass="animate-slide-up"
+              className="text-8xl md:text-[16rem] lg:text-[20rem] xl:text-[21rem] leading-[0.75] mb-12 font-secondary tracking-tighter"
+              staggerDelay={0.06}
             />
-            <p className="text-white/40 max-w-sm text-[10px] tracking-[0.3em] font-bold">
+            <p className="text-white/50 max-w-5xl text-2xl md:text-3xl lg:text-4xl leading-snug font-secondary tracking-normal">
               Elite trials, community matches, and cultural pop-ups. <br />
               Don't miss your moment.
             </p>
           </div>
           <div className="hidden md:block">
-            <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/20">
+            <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-white/10">
               Scroll to explore // View all events
             </span>
           </div>
@@ -67,8 +67,8 @@ export default function Events() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[300px]">
           {/* Large Card */}
           <div className="md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-none border border-white/10 bg-white/5">
-            <img 
-              src={events[0].image} 
+            <img
+              src={events[0].image}
               alt={events[0].title}
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale"
             />
@@ -89,8 +89,8 @@ export default function Events() {
 
           {/* Medium Card 1 */}
           <div className="md:col-span-2 relative group overflow-hidden rounded-none border border-white/10 bg-white/5">
-            <img 
-              src={events[1].image} 
+            <img
+              src={events[1].image}
               alt={events[1].title}
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
             />
@@ -106,8 +106,8 @@ export default function Events() {
 
           {/* Small Card */}
           <div className="md:col-span-1 relative group overflow-hidden rounded-none border border-white/10 bg-white/5">
-            <img 
-              src={events[2].image} 
+            <img
+              src={events[2].image}
               alt={events[2].title}
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale"
             />
@@ -121,16 +121,16 @@ export default function Events() {
           {/* Medium Card 2 - Abstract Placement */}
           <div className="md:col-span-1 relative group overflow-hidden rounded-none border border-white/10 bg-white/5">
             <div className="absolute inset-0 p-8 flex flex-col justify-between bg-white text-black">
-               <div className="flex flex-col gap-1">
-                 <span className="text-[8px] font-bold tracking-widest">Next Wave</span>
-                 <h3 className="text-3xl font-secondary leading-none">Join the Network</h3>
-               </div>
-               <p className="text-xs font-bold tracking-tighter opacity-70">
-                 Be first in line for the MFT Scouting App.
-               </p>
-               <button className="w-full py-4 border-2 border-black font-bold text-[10px] uppercase tracking-[0.2em] hover:bg-black hover:text-white transition-colors">
-                 Register Interest
-               </button>
+              <div className="flex flex-col gap-1">
+                <span className="text-[8px] font-bold tracking-widest">Next Wave</span>
+                <h3 className="text-3xl font-secondary leading-none">Join the Network</h3>
+              </div>
+              <p className="text-xs font-bold tracking-tighter opacity-70">
+                Be first in line for the MFT Scouting App.
+              </p>
+              <button className="w-full py-4 border-2 border-black font-bold text-[10px] uppercase tracking-[0.2em] hover:bg-black hover:text-white transition-colors">
+                Register Interest
+              </button>
             </div>
           </div>
         </div>
