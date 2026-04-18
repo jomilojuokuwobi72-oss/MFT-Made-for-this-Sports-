@@ -1,96 +1,81 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { Instagram } from "lucide-react";
 
-function TikTokIcon(props: React.SVGProps<SVGSVGElement>) {
+export default function Navbar() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
-      <path d="M21 8.2c-1.9 0-3.7-.6-5.2-1.7v8.1c0 3.3-2.7 6-6 6s-6-2.7-6-6 2.7-6 6-6c.4 0 .8 0 1.2.1v3.2c-.4-.2-.8-.3-1.2-.3-1.5 0-2.8 1.2-2.8 2.8s1.2 2.8 2.8 2.8 2.8-1.2 2.8-2.8V2h3.2c.2 1.7 1.2 3.2 2.7 4 .9.5 1.9.8 3 .8v2.4z" />
-    </svg>
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+        ? "py-4 bg-black/10 backdrop-blur-md"
+        : "py-6 bg-transparent"
+        }`}
+    >
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+        <Link
+          href="/"
+          className="font-display text-2xl tracking-tighter hover:opacity-80 transition"
+        >
+          Made For This<span className="text-white/40">.</span>
+        </Link>
+
+        {/* Desktop Links */}
+        <div className="hidden md:flex items-center gap-8">
+          <NavLink href="#home">Home</NavLink>
+          <NavLink href="#events">Events</NavLink>
+          <NavLink href="#culture">Culture</NavLink>
+          <NavLink href="#about">About</NavLink>
+          <NavLink href="#contact">Contact</NavLink>
+        </div>
+
+        {/* Technical Call to Action */}
+        <div className="flex items-center gap-4">
+          <Link
+            href="#contact"
+            className="hidden sm:block text-xs font-bold uppercase tracking-widest border border-white/20 px-4 py-2 rounded-full hover:bg-white hover:text-black transition-all"
+          >
+            Join Waitlist
+          </Link>
+          <button className="md:hidden text-white">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <line x1="4" x2="20" y1="12" y2="12" />
+              <line x1="4" x2="20" y1="6" y2="6" />
+              <line x1="4" x2="20" y1="18" y2="18" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </nav>
   );
 }
 
-const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Contact", href: "#contact" },
-];
-
-export default function Navbar() {
+function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
-    <header className="fixed top-0 z-50 w-full bg-black/70 backdrop-blur border-b border-white/10">
-      <nav className="mx-auto max-w-7xl px-6 py-4 flex items-center">
-        
-        {/* LEFT: Logo */}
-        <div className="flex-1">
-          <Link
-            href="#home"
-            className="flex items-center gap-3 text-white font-extrabold tracking-tight text-xl"
-          >
-            <Image
-              src="/MFT BRAND OVERVIEW-01.PNG"
-              alt="MFT Logo"
-              width={40}
-              height={40}
-              className="h-10 w-auto"
-            />
-            MFT {/*<span className="text-white/60">Sports</span>*/}
-          </Link>
-        </div>
-
-        {/* CENTER: Navigation */}
-        <div className="hidden md:flex flex-1 justify-center gap-10">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-sm font-medium text-white/80 hover:text-white transition"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </div>
-
-        {/* RIGHT: Social Icons */}
-        <div className="flex-1 flex justify-end items-center gap-4">
-          <a
-            href="https://www.instagram.com/made4thisports?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Instagram"
-            className="text-white/80 hover:text-white transition"
-          >
-            <Instagram className="h-5 w-5" />
-          </a>
-
-          <a
-            href="https://www.tiktok.com/@made4thisports?_r=1&_t=ZS-93cyNaxSmcG"
-            target="_blank"
-            rel="noreferrer"
-            aria-label="TikTok"
-            className="text-white/80 hover:text-white transition"
-          >
-            <TikTokIcon className="h-5 w-5" />
-          </a>
-        </div>
-      </nav>
-
-      {/* Mobile Nav */}
-      <div className="md:hidden border-t border-white/10">
-        <div className="flex justify-center gap-6 py-3">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-sm font-medium text-white/80 hover:text-white transition"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </div>
-      </div>
-    </header>
+    <Link
+      href={href}
+      className="text-xs font-bold text-white/60 hover:text-white transition"
+    >
+      {children}
+    </Link>
   );
 }
