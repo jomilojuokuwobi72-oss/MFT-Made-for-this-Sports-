@@ -46,10 +46,10 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="mt-8 self-start animate-slide-up" style={{ animationDelay: '1s', opacity: 0, animationFillMode: 'forwards' }}>
+          <div className="mt-8 ml-4 self-start animate-slide-up" style={{ animationDelay: '1s', opacity: 0, animationFillMode: 'forwards' }}>
             <a
               href="#events"
-              className="group relative inline-flex items-center justify-center bg-white text-black px-12 py-5 font-bold tracking-[0.2em] text-xs transition-all hover:bg-white/90 active:scale-95 rounded-none"
+              className="group relative inline-flex items-center justify-center bg-white text-black px-12 py-5 font-bold text-2xl transition-all hover:bg-white/90 active:scale-95 rounded-none font-secondary"
             >
               Join the Journey
               <svg
