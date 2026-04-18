@@ -2,7 +2,7 @@ export default function Contact() {
   return (
     <section id="contact" className="py-24 bg-black text-white relative noise-bg">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="rounded-[3rem] border border-white/10 bg-linear-to-b from-white/5 to-transparent p-8 md:p-16 relative overflow-hidden">
+        <div className="rounded-none border border-white/10 bg-linear-to-b from-white/5 to-transparent p-8 md:p-16 relative overflow-hidden">
           {/* Background Highlight */}
           <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-white/5 blur-[120px] rounded-full" />
           
@@ -36,20 +36,20 @@ export default function Contact() {
                 <input 
                   type="text" 
                   placeholder="Name"
-                  className="bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-xs font-bold tracking-widest focus:outline-none focus:border-white transition-colors"
+                  className="bg-white/5 border border-white/10 rounded-none px-6 py-4 text-xs font-bold tracking-widest focus:outline-none focus:border-white transition-colors"
                 />
                 <input 
                   type="email" 
                   placeholder="Email"
-                  className="bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-xs font-bold tracking-widest focus:outline-none focus:border-white transition-colors"
+                  className="bg-white/5 border border-white/10 rounded-none px-6 py-4 text-xs font-bold tracking-widest focus:outline-none focus:border-white transition-colors"
                 />
               </div>
               <textarea 
                 placeholder="Message" 
                 rows={4}
-                className="bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-xs font-bold tracking-widest focus:outline-none focus:border-white transition-colors"
+                className="bg-white/5 border border-white/10 rounded-none px-6 py-4 text-xs font-bold tracking-widest focus:outline-none focus:border-white transition-colors"
               />
-              <button className="w-full py-5 rounded-2xl bg-white text-black font-bold tracking-[0.1em] text-xs hover:scale-[1.02] transition-transform active:scale-95">
+              <button className="w-full py-5 rounded-none bg-white text-black font-bold tracking-[0.1em] text-xs hover:scale-[1.02] transition-transform active:scale-95">
                 Send Transmission
               </button>
             </form>

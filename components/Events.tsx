@@ -66,7 +66,7 @@ export default function Events() {
         {/* Abstract Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[300px]">
           {/* Large Card */}
-          <div className="md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-3xl border border-white/10 bg-white/5">
+          <div className="md:col-span-2 md:row-span-2 relative group overflow-hidden rounded-none border border-white/10 bg-white/5">
             <img 
               src={events[0].image} 
               alt={events[0].title}
@@ -76,7 +76,7 @@ export default function Events() {
             <div className="absolute bottom-0 p-8 flex flex-col gap-2">
               <div className="flex gap-2">
                 {events[0].tags.map(tag => (
-                  <span key={tag} className="text-[8px] font-bold tracking-[0.2em] border border-white/30 px-2 py-1 rounded-full">{tag}</span>
+                  <span key={tag} className="text-[8px] font-bold tracking-[0.2em] border border-white/30 px-2 py-1 rounded-none">{tag}</span>
                 ))}
               </div>
               <h3 className="text-3xl md:text-4xl font-secondary leading-none">{events[0].title}</h3>
@@ -88,7 +88,7 @@ export default function Events() {
           </div>
 
           {/* Medium Card 1 */}
-          <div className="md:col-span-2 relative group overflow-hidden rounded-3xl border border-white/10 bg-white/5">
+          <div className="md:col-span-2 relative group overflow-hidden rounded-none border border-white/10 bg-white/5">
             <img 
               src={events[1].image} 
               alt={events[1].title}
@@ -105,7 +105,7 @@ export default function Events() {
           </div>
 
           {/* Small Card */}
-          <div className="md:col-span-1 relative group overflow-hidden rounded-3xl border border-white/10 bg-white/5">
+          <div className="md:col-span-1 relative group overflow-hidden rounded-none border border-white/10 bg-white/5">
             <img 
               src={events[2].image} 
               alt={events[2].title}
@@ -119,7 +119,7 @@ export default function Events() {
           </div>
 
           {/* Medium Card 2 - Abstract Placement */}
-          <div className="md:col-span-1 relative group overflow-hidden rounded-3xl border border-white/10 bg-white/5">
+          <div className="md:col-span-1 relative group overflow-hidden rounded-none border border-white/10 bg-white/5">
             <div className="absolute inset-0 p-8 flex flex-col justify-between bg-white text-black">
                <div className="flex flex-col gap-1">
                  <span className="text-[8px] font-bold tracking-widest">Next Wave</span>

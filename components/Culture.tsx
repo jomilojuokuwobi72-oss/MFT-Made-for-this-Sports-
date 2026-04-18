@@ -43,7 +43,7 @@ export default function Culture() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
           {/* Main Article */}
           <div className="lg:col-span-7 flex flex-col group cursor-pointer">
-            <div className="overflow-hidden rounded-sm aspect-4/5 bg-neutral-900 border border-white/5">
+            <div className="overflow-hidden rounded-none aspect-4/5 bg-neutral-900 border border-white/5">
               <img 
                 src={articles[0].image} 
                 alt={articles[0].title}
@@ -62,7 +62,7 @@ export default function Culture() {
           <div className="lg:col-span-5 flex flex-col gap-24 pt-12">
             {articles.slice(1).map((article) => (
               <div key={article.id} className="flex flex-col group cursor-pointer">
-                <div className="overflow-hidden rounded-sm aspect-video bg-neutral-900 border border-white/5">
+                <div className="overflow-hidden rounded-none aspect-video bg-neutral-900 border border-white/5">
                   <img 
                     src={article.image} 
                     alt={article.title}

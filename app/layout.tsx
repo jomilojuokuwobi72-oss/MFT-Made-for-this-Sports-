@@ -35,11 +35,6 @@ const moho = localFont({
   variable: "--font-moho",
 });
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
-
 export const metadata: Metadata = {
   title: "MFT Sports | The Journey, The Culture, The Scouting",
   description: "A football community built to spotlight talent and track player stats.",
@@ -53,7 +48,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${avaleigh.variable} ${moho.variable} ${inter.variable} font-sans antialiased bg-black text-white`}
+        className={`${avaleigh.variable} ${moho.variable} font-sans antialiased bg-black text-white`}
       >
         {children}
       </body>

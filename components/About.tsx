@@ -63,10 +63,10 @@ export default function About() {
                 {pillars.map((pillar, idx) => (
                   <div 
                     key={pillar.title} 
-                    className="p-8 rounded-3xl border border-white/5 bg-white/2 backdrop-blur-sm transition-all hover:bg-white/5 hover:border-white/10 group"
+                    className="p-8 rounded-none border border-white/5 bg-white/2 backdrop-blur-sm transition-all hover:bg-white/5 hover:border-white/10 group"
                   >
                      <div className="flex items-start gap-6">
-                        <div className="p-3 bg-white/5 rounded-2xl text-white group-hover:scale-110 transition-transform">
+                        <div className="p-3 bg-white/5 rounded-none text-white group-hover:scale-110 transition-transform">
                           {pillar.icon}
                         </div>
                         <div>

@@ -24,9 +24,18 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <Link
           href="/"
-          className="font-display text-2xl tracking-tighter hover:opacity-80 transition"
+          className="flex items-center gap-3 group"
         >
-          Made For This<span className="text-white/40">.</span>
+          <div className="relative h-10 w-10 overflow-hidden rounded-none border border-white/10 group-hover:border-white/30 transition-colors">
+            <img 
+              src="/images/mft-logo.png" 
+              alt="MFT Logo" 
+              className="h-full w-full object-cover scale-110" 
+            />
+          </div>
+          <span className="font-display text-2xl tracking-tighter hover:opacity-80 transition hidden sm:block">
+            Made For This<span className="text-white/40">.</span>
+          </span>
         </Link>
 
         {/* Desktop Links */}
@@ -42,7 +51,7 @@ export default function Navbar() {
         <div className="flex items-center gap-4">
           <Link
             href="#contact"
-            className="hidden sm:block text-xs font-bold uppercase tracking-widest border border-white/20 px-4 py-2 rounded-full hover:bg-white hover:text-black transition-all"
+            className="hidden sm:block text-xs font-bold uppercase tracking-widest border border-white/20 px-4 py-2 rounded-none hover:bg-white hover:text-black transition-all"
           >
             Join Waitlist
           </Link>
