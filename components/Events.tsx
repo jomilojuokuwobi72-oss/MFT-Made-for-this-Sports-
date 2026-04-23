@@ -62,7 +62,7 @@ export default function Events() {
             </p>
           </div>
           <div className="hidden md:block">
-            <span className="text-sm font-bold uppercase tracking-[0.6em] text-white/10 font-display">
+            <span className="text-xl font-bold uppercase tracking-[0.6em] text-white/10 font-display">
               Transmission // 002-X-EVENTS
             </span>
           </div>
@@ -81,7 +81,7 @@ export default function Events() {
             <div className="absolute bottom-0 p-10 flex flex-col gap-4">
               <div className="flex gap-3">
                 {events[0].tags.map(tag => (
-                  <span key={tag} className="text-xs font-bold tracking-[0.2em] border border-white/30 px-3 py-1.5 rounded-none font-display uppercase">{tag}</span>
+                  <span key={tag} className="text-xl font-bold tracking-[0.2em] border border-white/30 px-3 py-1.5 rounded-none font-display uppercase">{tag}</span>
                 ))}
               </div>
               <h3 className="text-4xl md:text-5xl lg:text-6xl font-secondary leading-none tracking-tight">{events[0].title}</h3>
@@ -102,7 +102,7 @@ export default function Events() {
             <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors" />
             <div className="absolute inset-0 p-10 flex flex-col justify-end">
               <h3 className="text-3xl font-secondary tracking-tight">{events[1].title}</h3>
-              <div className="flex justify-between text-sm font-bold tracking-widest mt-4 text-white/60 font-display uppercase">
+              <div className="flex justify-between text-xl font-bold tracking-widest mt-4 text-white/60 font-display uppercase">
                 <span>{events[1].date}</span>
                 <span>{events[1].location}</span>
               </div>
@@ -119,7 +119,7 @@ export default function Events() {
             <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors" />
             <div className="absolute inset-0 p-8 flex flex-col justify-end">
               <h3 className="text-2xl font-secondary tracking-tight">{events[2].title}</h3>
-              <span className="text-xs font-bold tracking-[0.2em] mt-2 text-white/40 font-display uppercase">{events[2].location}</span>
+              <span className="text-xl font-bold tracking-[0.2em] mt-2 text-white/40 font-display uppercase">{events[2].location}</span>
             </div>
           </div>
 
@@ -127,7 +127,7 @@ export default function Events() {
           <div className="md:col-span-1 relative group overflow-hidden rounded-none border border-white/10 bg-white/5">
             <div className="absolute inset-0 p-10 flex flex-col justify-between bg-white text-black">
               <div className="flex flex-col gap-2">
-                <span className="text-xs font-bold tracking-[0.3em] uppercase font-display">Next Wave</span>
+                <span className="text-xl font-bold tracking-[0.3em] uppercase font-display">Next Wave</span>
                 <h3 className="text-4xl font-secondary leading-none tracking-tight">Join the Network</h3>
               </div>
               <p className="text-sm font-bold tracking-tight opacity-70 leading-relaxed font-mono">
@@ -135,7 +135,7 @@ export default function Events() {
               </p>
               <button
                 onClick={openWaitlist}
-                className="w-full py-5 border-2 border-black font-bold text-sm uppercase tracking-[0.3em] hover:bg-black hover:text-white transition-all font-display active:scale-95"
+                className="w-full py-8 border-2 border-black font-bold text-2xl uppercase tracking-[0.3em] hover:bg-black hover:text-white transition-all font-display active:scale-95"
               >
                 Register Interest
               </button>

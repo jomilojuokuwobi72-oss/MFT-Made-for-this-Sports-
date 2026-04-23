@@ -24,7 +24,7 @@ export default function Footer() {
 
           <div className="lg:col-span-5 grid grid-cols-2 gap-16 lg:gap-24">
             <ScrollReveal animation="slide-up" delay={0.1}>
-              <h4 className="text-sm uppercase tracking-[0.5em] text-white/30 mb-10 font-bold font-display">Navigation</h4>
+              <h4 className="text-2xl uppercase tracking-[0.5em] text-white/30 mb-10 font-bold font-display">Navigation</h4>
               <ul className="flex flex-col gap-6 text-lg font-bold tracking-widest text-white/60 font-display">
                 <li><Link href="#home" className="hover:text-white transition">Home</Link></li>
                 <li><Link href="#events" className="hover:text-white transition">Events</Link></li>
@@ -34,7 +34,7 @@ export default function Footer() {
             </ScrollReveal>
 
             <ScrollReveal animation="slide-up" delay={0.2}>
-              <h4 className="text-sm uppercase tracking-[0.5em] text-white/30 mb-10 font-bold font-display">Social</h4>
+              <h4 className="text-2xl uppercase tracking-[0.5em] text-white/30 mb-10 font-bold font-display">Social</h4>
               <ul className="flex flex-col gap-6 text-lg font-bold tracking-widest text-white/60 font-display">
                 <li>
                   <a href="https://instagram.com/made4thisports" target="_blank" className="flex items-center gap-3 hover:text-white transition">
@@ -59,9 +59,9 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-64 pt-16 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-12 text-sm font-bold tracking-[0.4em] text-white/20 uppercase font-display">
+        <div className="mt-64 pt-16 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-12 text-xl font-bold tracking-[0.4em] text-white/20 uppercase font-display">
           <ScrollReveal animation="fade-in">
-            <span>&copy; 2025 Made For This Sports Architecture.</span>
+            <span>&copy; 2025 Made For This Sports.</span>
           </ScrollReveal>
           <div className="flex flex-wrap justify-center gap-12">
             <ScrollReveal animation="fade-in" delay={0.1}>

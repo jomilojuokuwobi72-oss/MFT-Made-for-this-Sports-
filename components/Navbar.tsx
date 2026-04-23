@@ -53,7 +53,7 @@ export default function Navbar() {
         <div className="flex items-center gap-4">
           <button
             onClick={openWaitlist}
-            className="hidden sm:block text-sm font-bold uppercase tracking-widest border border-white/20 px-6 py-3 rounded-none hover:bg-white hover:text-black transition-all font-display"
+            className="hidden sm:block text-2xl font-bold uppercase tracking-widest border border-white/20 px-8 py-4 rounded-none hover:bg-white hover:text-black transition-all font-display"
           >
             Join Waitlist
           </button>
@@ -84,7 +84,7 @@ function NavLink({ href, children }: { href: string; children: React.ReactNode }
   return (
     <Link
       href={href}
-      className="text-sm font-bold text-white/60 hover:text-white transition font-display"
+      className="text-xl font-bold text-white/60 hover:text-white transition font-display"
     >
       {children}
     </Link>

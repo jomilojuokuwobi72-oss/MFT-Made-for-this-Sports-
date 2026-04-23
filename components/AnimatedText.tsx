@@ -1,11 +1,18 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 interface AnimatedTextProps {
   text: string;
   className?: string;
-  animationClass: "animate-blur-in-right" | "animate-bounce-in" | "animate-blur-drop" | "animate-slide-up";
+  animationClass?: string; // Kept for prop compatibility but will use GSAP instead
   staggerDelay?: number;
   duration?: number;
 }
@@ -13,20 +20,48 @@ interface AnimatedTextProps {
 export default function AnimatedText({
   text,
   className = "",
-  animationClass,
-  staggerDelay = 0.05,
+  staggerDelay = 0.02,
+  duration = 0.8,
 }: AnimatedTextProps) {
+  const containerRef = useRef<HTMLDivElement>(null);
   const chars = text.split("");
 
+  useGSAP(() => {
+    if (!containerRef.current) return;
+
+    const chars = containerRef.current.querySelectorAll(".char");
+    
+    gsap.fromTo(
+      chars,
+      { 
+        y: 100, 
+        opacity: 0,
+        rotateX: -90,
+        filter: "blur(10px)"
+      },
+      {
+        y: 0,
+        opacity: 1,
+        rotateX: 0,
+        filter: "blur(0px)",
+        duration: duration,
+        stagger: staggerDelay,
+        ease: "power4.out",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 90%",
+          toggleActions: "play none none reverse",
+        }
+      }
+    );
+  }, { scope: containerRef });
+
   return (
-    <div className={className}>
+    <div ref={containerRef} className={`${className} perspective-[1000px]`}>
       {chars.map((char, index) => (
         <span
           key={index}
-          className={`inline-block whitespace-pre opacity-0 ${animationClass}`}
-          style={{
-            animationDelay: `${index * staggerDelay}s`,
-          }}
+          className="char inline-block whitespace-pre will-change-transform"
         >
           {char}
         </span>

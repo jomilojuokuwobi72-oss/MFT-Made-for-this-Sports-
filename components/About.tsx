@@ -41,7 +41,7 @@ export default function About() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col lg:flex-row gap-16 lg:items-center">
           <div className="lg:w-1/2">
-            <span className="text-xs font-bold uppercase tracking-[0.4em] text-white/30 mb-4 block font-display">
+            <span className="text-2xl font-bold uppercase tracking-[0.4em] text-white/30 mb-4 block font-display">
               Our Mission
             </span>
             <AnimatedText 
@@ -50,7 +50,7 @@ export default function About() {
               className="text-5xl md:text-7xl mb-8 tracking-tighter font-secondary"
               staggerDelay={0.06}
             />
-            <p className="text-white/60 text-lg leading-relaxed font-sans max-w-xl">
+            <p className="text-white/60 text-3xl leading-relaxed font-sans max-w-xl">
               Made For This is more than a scouting platform. It’s a movement born from 
               the raw energy of urban football. We bridge the gap between talent 
               and opportunity through culture, community, and cutting-edge tech.
@@ -71,7 +71,7 @@ export default function About() {
                         </div>
                         <div>
                           <h3 className="text-2xl font-secondary mb-2">{pillar.title}</h3>
-                          <p className="text-white/40 text-sm leading-relaxed">{pillar.description}</p>
+                          <p className="text-white/40 text-xl leading-relaxed">{pillar.description}</p>
                         </div>
                      </div>
                   </div>

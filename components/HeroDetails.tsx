@@ -22,7 +22,7 @@ export default function HeroDetails() {
           <div className="animate-slide-up opacity-0" style={{ animationDelay: '2.5s', animationFillMode: 'forwards' }}>
             <button
               onClick={openWaitlist}
-              className="inline-flex items-center justify-center border border-white/20 px-12 py-6 font-display font-bold tracking-[0.2em] text-sm text-white transition-all hover:bg-white hover:text-black active:scale-95 rounded-none uppercase"
+              className="inline-flex items-center justify-center border border-white/20 px-16 py-8 font-display font-bold tracking-[0.2em] text-2xl text-white transition-all hover:bg-white hover:text-black active:scale-95 rounded-none uppercase"
             >
               Get Scouted
             </button>

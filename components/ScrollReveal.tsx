@@ -1,7 +1,13 @@
 "use client";
 
-import React from "react";
-import { useInView } from "@/hooks/useInView";
+import React, { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 interface ScrollRevealProps {
   children: React.ReactNode;
@@ -9,45 +15,60 @@ interface ScrollRevealProps {
   delay?: number;
   duration?: number;
   className?: string;
-  once?: boolean;
+  distance?: number;
 }
 
 export default function ScrollReveal({
   children,
   animation = "slide-up",
   delay = 0,
-  duration = 0.6,
+  duration = 0.8,
   className = "",
-  once = true,
+  distance = 50,
 }: ScrollRevealProps) {
-  const [ref, isInView] = useInView({ threshold: 0.1, once });
+  const elementRef = useRef<HTMLDivElement>(null);
 
-  const animations = {
-    "fade-in": "opacity-0 translate-y-0",
-    "slide-up": "opacity-0 translate-y-8",
-    "blur-in": "opacity-0 translate-y-4 blur-md",
-    "scale-in": "opacity-0 scale-95",
-  };
+  useGSAP(() => {
+    if (!elementRef.current) return;
 
-  const activeAnimations = {
-    "fade-in": "opacity-100 translate-y-0",
-    "slide-up": "opacity-100 translate-y-0",
-    "blur-in": "opacity-100 translate-y-0 blur-0",
-    "scale-in": "opacity-100 scale-100",
-  };
+    let fromVars: gsap.TweenVars = { opacity: 0 };
+    let toVars: gsap.TweenVars = { 
+      opacity: 1, 
+      duration, 
+      delay, 
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: elementRef.current,
+        start: "top 85%",
+        toggleActions: "play none none reverse",
+      }
+    };
+
+    switch (animation) {
+      case "slide-up":
+        fromVars.y = distance;
+        toVars.y = 0;
+        break;
+      case "blur-in":
+        fromVars.y = 20;
+        fromVars.filter = "blur(10px)";
+        toVars.y = 0;
+        toVars.filter = "blur(0px)";
+        break;
+      case "scale-in":
+        fromVars.scale = 0.9;
+        toVars.scale = 1;
+        break;
+      case "fade-in":
+        // default opacity 0 to 1
+        break;
+    }
+
+    gsap.fromTo(elementRef.current, fromVars, toVars);
+  }, { scope: elementRef });
 
   return (
-    <div
-      ref={ref}
-      className={`transition-all ${className} ${
-        isInView ? activeAnimations[animation] : animations[animation]
-      }`}
-      style={{
-        transitionDelay: `${delay}s`,
-        transitionDuration: `${duration}s`,
-        transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",
-      }}
-    >
+    <div ref={elementRef} className={className}>
       {children}
     </div>
   );

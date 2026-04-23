@@ -12,7 +12,7 @@ export default function Contact() {
           <div className="relative z-10 grid lg:grid-cols-2 gap-20 xl:gap-32 items-start">
             <div>
               <ScrollReveal animation="fade-in">
-                <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.5em] text-white/30 mb-8 block">
+                <span className="text-2xl font-bold uppercase tracking-[0.5em] text-white/30 mb-8 block font-display">
                   Get Scouted // Partner With Us
                 </span>
                 <h2 className="text-6xl md:text-8xl lg:text-9xl mb-12 tracking-tighter font-secondary leading-[0.85]">
@@ -36,8 +36,8 @@ export default function Contact() {
                       <Instagram className="w-5 h-5" />
                     </div>
                     <div className="flex flex-col">
-                      <span className="text-xs uppercase tracking-widest text-white/30">Follow the Journey</span>
-                      <span className="text-sm font-bold tracking-widest group-hover:translate-x-1 transition-transform">@made4thisports</span>
+                      <span className="text-xl uppercase tracking-widest text-white/30 font-display">Follow the Journey</span>
+                      <span className="text-2xl font-bold tracking-widest group-hover:translate-x-1 transition-transform">@made4thisports</span>
                     </div>
                   </a>
                 </ScrollReveal>
@@ -51,8 +51,8 @@ export default function Contact() {
                       <Mail className="w-5 h-5" />
                     </div>
                     <div className="flex flex-col">
-                      <span className="text-xs uppercase tracking-widest text-white/30">Direct Transmission</span>
-                      <span className="text-sm font-bold tracking-widest group-hover:translate-x-1 transition-transform">info@mft-sports.com</span>
+                      <span className="text-xl uppercase tracking-widest text-white/30 font-display">Direct Transmission</span>
+                      <span className="text-2xl font-bold tracking-widest group-hover:translate-x-1 transition-transform">info@mft-sports.com</span>
                     </div>
                   </a>
                 </ScrollReveal>
@@ -63,31 +63,31 @@ export default function Contact() {
               <form className="flex flex-col gap-8 h-full">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                   <div className="flex flex-col gap-3">
-                    <label className="text-xs uppercase tracking-[0.3em] text-white/20 ml-1">Full Name</label>
+                    <label className="text-xl uppercase tracking-[0.3em] text-white/20 ml-1 font-display">Full Name</label>
                     <input 
                       type="text" 
                       placeholder="Your name"
-                      className="bg-white/5 border border-white/10 rounded-none px-8 py-6 text-sm font-bold tracking-widest focus:outline-none focus:border-white/40 transition-all placeholder:text-white/10"
+                      className="bg-white/5 border border-white/10 rounded-none px-8 py-6 text-2xl font-bold tracking-widest focus:outline-none focus:border-white/40 transition-all placeholder:text-white/10"
                     />
                   </div>
                   <div className="flex flex-col gap-3">
-                    <label className="text-xs uppercase tracking-[0.3em] text-white/20 ml-1">Email Address</label>
+                    <label className="text-xl uppercase tracking-[0.3em] text-white/20 ml-1 font-display">Email Address</label>
                     <input 
                       type="email" 
                       placeholder="Your email"
-                      className="bg-white/5 border border-white/10 rounded-none px-8 py-6 text-sm font-bold tracking-widest focus:outline-none focus:border-white/40 transition-all placeholder:text-white/10"
+                      className="bg-white/5 border border-white/10 rounded-none px-8 py-6 text-2xl font-bold tracking-widest focus:outline-none focus:border-white/40 transition-all placeholder:text-white/10"
                     />
                   </div>
                 </div>
                 <div className="flex flex-col gap-3 flex-grow">
-                  <label className="text-xs uppercase tracking-[0.3em] text-white/20 ml-1">Message // Request</label>
+                  <label className="text-xl uppercase tracking-[0.3em] text-white/20 ml-1 font-display">Message // Request</label>
                   <textarea 
                     placeholder="How can we help you reach your peak?" 
                     rows={6}
-                    className="bg-white/5 border border-white/10 rounded-none px-8 py-6 text-sm font-bold tracking-widest focus:outline-none focus:border-white/40 transition-all placeholder:text-white/10 resize-none h-full min-h-[200px]"
+                    className="bg-white/5 border border-white/10 rounded-none px-8 py-6 text-2xl font-bold tracking-widest focus:outline-none focus:border-white/40 transition-all placeholder:text-white/10 resize-none h-full min-h-[200px]"
                   />
                 </div>
-                <button className="w-full py-8 rounded-none bg-white text-black font-bold tracking-[0.3em] text-sm hover:bg-neutral-200 transition-all active:scale-[0.98] mt-4 shadow-2xl">
+                <button className="w-full py-12 rounded-none bg-white text-black font-bold tracking-[0.3em] text-3xl hover:bg-neutral-200 transition-all active:scale-[0.98] mt-4 shadow-2xl font-display">
                   Submit Application
                 </button>
               </form>

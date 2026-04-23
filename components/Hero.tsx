@@ -54,11 +54,11 @@ export default function Hero() {
           <div className="mt-8 ml-4 self-start animate-slide-up" style={{ animationDelay: '1s', opacity: 0, animationFillMode: 'forwards' }}>
             <button
               onClick={openWaitlist}
-              className="group relative inline-flex items-center justify-center bg-white text-black px-12 py-5 font-bold text-2xl transition-all hover:bg-white/90 active:scale-95 rounded-none font-display tracking-tight"
+              className="group relative inline-flex items-center justify-center bg-white text-black px-16 py-8 font-bold text-4xl transition-all hover:bg-white/90 active:scale-95 rounded-none font-display tracking-tight"
             >
               Join the Journey
               <svg
-                className="ml-3 w-4 h-4 transition-transform group-hover:translate-x-1"
+                className="ml-4 w-8 h-8 transition-transform group-hover:translate-x-1"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
