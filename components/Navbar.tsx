@@ -2,9 +2,11 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useWaitlist } from "./WaitlistProvider";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const { openWaitlist } = useWaitlist();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -49,12 +51,12 @@ export default function Navbar() {
 
         {/* Technical Call to Action */}
         <div className="flex items-center gap-4">
-          <Link
-            href="#contact"
-            className="hidden sm:block text-xs font-bold uppercase tracking-widest border border-white/20 px-4 py-2 rounded-none hover:bg-white hover:text-black transition-all"
+          <button
+            onClick={openWaitlist}
+            className="hidden sm:block text-sm font-bold uppercase tracking-widest border border-white/20 px-6 py-3 rounded-none hover:bg-white hover:text-black transition-all font-display"
           >
             Join Waitlist
-          </Link>
+          </button>
           <button className="md:hidden text-white">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -82,7 +84,7 @@ function NavLink({ href, children }: { href: string; children: React.ReactNode }
   return (
     <Link
       href={href}
-      className="text-xs font-bold text-white/60 hover:text-white transition"
+      className="text-sm font-bold text-white/60 hover:text-white transition font-display"
     >
       {children}
     </Link>

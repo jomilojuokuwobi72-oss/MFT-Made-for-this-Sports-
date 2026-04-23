@@ -1,6 +1,11 @@
+"use client";
+
 import AnimatedText from "@/components/AnimatedText";
+import { useWaitlist } from "./WaitlistProvider";
 
 export default function Hero() {
+  const { openWaitlist } = useWaitlist();
+
   return (
     <section
       id="home"
@@ -47,9 +52,9 @@ export default function Hero() {
           </div>
 
           <div className="mt-8 ml-4 self-start animate-slide-up" style={{ animationDelay: '1s', opacity: 0, animationFillMode: 'forwards' }}>
-            <a
-              href="#events"
-              className="group relative inline-flex items-center justify-center bg-white text-black px-12 py-5 font-bold text-2xl transition-all hover:bg-white/90 active:scale-95 rounded-none font-secondary"
+            <button
+              onClick={openWaitlist}
+              className="group relative inline-flex items-center justify-center bg-white text-black px-12 py-5 font-bold text-2xl transition-all hover:bg-white/90 active:scale-95 rounded-none font-display tracking-tight"
             >
               Join the Journey
               <svg
@@ -61,10 +66,11 @@ export default function Hero() {
               >
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
-            </a>
+            </button>
           </div>
         </div>
       </div>
     </section>
   );
 }
+

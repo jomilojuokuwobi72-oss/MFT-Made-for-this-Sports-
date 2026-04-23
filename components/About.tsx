@@ -41,7 +41,7 @@ export default function About() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col lg:flex-row gap-16 lg:items-center">
           <div className="lg:w-1/2">
-            <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-white/30 mb-4 block">
+            <span className="text-xs font-bold uppercase tracking-[0.4em] text-white/30 mb-4 block font-display">
               Our Mission
             </span>
             <AnimatedText 

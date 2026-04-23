@@ -40,6 +40,8 @@ export const metadata: Metadata = {
   description: "A football community built to spotlight talent and track player stats.",
 };
 
+import { WaitlistProvider } from "@/components/WaitlistProvider";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -50,7 +52,9 @@ export default function RootLayout({
       <body
         className={`${avaleigh.variable} ${moho.variable} font-sans antialiased bg-black text-white`}
       >
-        {children}
+        <WaitlistProvider>
+          {children}
+        </WaitlistProvider>
       </body>
     </html>
   );
