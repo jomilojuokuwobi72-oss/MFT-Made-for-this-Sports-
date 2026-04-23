@@ -15,7 +15,7 @@ export default function Footer() {
               >
                 Made For This<span className="text-white/40">.</span>
               </Link>
-              <p className="text-2xl md:text-3xl font-sans tracking-tight text-white/40 max-w-xl leading-snug">
+              <p className="text-2xl md:text-3xl font-sans tracking-tight text-white/70 max-w-xl leading-snug">
                 The Journey is the Destination. <br />
                 A global football movement born from the raw energy of urban talent.
               </p>
@@ -24,8 +24,8 @@ export default function Footer() {
 
           <div className="lg:col-span-5 grid grid-cols-2 gap-16 lg:gap-24">
             <ScrollReveal animation="slide-up" delay={0.1}>
-              <h4 className="text-2xl uppercase tracking-[0.5em] text-white/30 mb-10 font-bold font-display">Navigation</h4>
-              <ul className="flex flex-col gap-6 text-lg font-bold tracking-widest text-white/60 font-display">
+              <h4 className="text-2xl uppercase tracking-[0.5em] text-white/70 mb-10 font-bold font-display">Navigation</h4>
+              <ul className="flex flex-col gap-6 text-lg font-bold tracking-widest text-white/80 font-display">
                 <li><Link href="#home" className="hover:text-white transition">Home</Link></li>
                 <li><Link href="#events" className="hover:text-white transition">Events</Link></li>
                 <li><Link href="#culture" className="hover:text-white transition">Culture</Link></li>
@@ -34,8 +34,8 @@ export default function Footer() {
             </ScrollReveal>
 
             <ScrollReveal animation="slide-up" delay={0.2}>
-              <h4 className="text-2xl uppercase tracking-[0.5em] text-white/30 mb-10 font-bold font-display">Social</h4>
-              <ul className="flex flex-col gap-6 text-lg font-bold tracking-widest text-white/60 font-display">
+              <h4 className="text-2xl uppercase tracking-[0.5em] text-white/70 mb-10 font-bold font-display">Social</h4>
+              <ul className="flex flex-col gap-6 text-lg font-bold tracking-widest text-white/80 font-display">
                 <li>
                   <a href="https://instagram.com/made4thisports" target="_blank" className="flex items-center gap-3 hover:text-white transition">
                     <Instagram className="w-5 h-5" />
@@ -59,7 +59,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-64 pt-16 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-12 text-xl font-bold tracking-[0.4em] text-white/20 uppercase font-display">
+        <div className="mt-64 pt-16 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-12 text-xl font-bold tracking-[0.4em] text-white/50 uppercase font-display">
           <ScrollReveal animation="fade-in">
             <span>&copy; 2025 Made For This Sports.</span>
           </ScrollReveal>

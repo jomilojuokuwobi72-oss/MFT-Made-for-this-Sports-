@@ -12,13 +12,13 @@ export default function Contact() {
           <div className="relative z-10 grid lg:grid-cols-2 gap-20 xl:gap-32 items-start">
             <div>
               <ScrollReveal animation="fade-in">
-                <span className="text-2xl font-bold uppercase tracking-[0.5em] text-white/30 mb-8 block font-display">
+                <span className="text-2xl font-bold uppercase tracking-[0.5em] text-white/70 mb-8 block font-display">
                   Get Scouted // Partner With Us
                 </span>
                 <h2 className="text-6xl md:text-8xl lg:text-9xl mb-12 tracking-tighter font-secondary leading-[0.85]">
                   Ready For <br /> Your Moment?
                 </h2>
-                <p className="text-white/40 text-xl md:text-2xl leading-snug max-w-lg font-sans tracking-tight">
+                <p className="text-white/80 text-xl md:text-2xl leading-snug max-w-lg font-sans tracking-tight">
                   Whether you're a player looking for a trial, a scout seeking talent, 
                   or a brand interested in the MFT culture — we want to hear from you.
                 </p>
@@ -36,7 +36,7 @@ export default function Contact() {
                       <Instagram className="w-5 h-5" />
                     </div>
                     <div className="flex flex-col">
-                      <span className="text-xl uppercase tracking-widest text-white/30 font-display">Follow the Journey</span>
+                      <span className="text-xl uppercase tracking-widest text-white/70 font-display">Follow the Journey</span>
                       <span className="text-2xl font-bold tracking-widest group-hover:translate-x-1 transition-transform">@made4thisports</span>
                     </div>
                   </a>
@@ -51,7 +51,7 @@ export default function Contact() {
                       <Mail className="w-5 h-5" />
                     </div>
                     <div className="flex flex-col">
-                      <span className="text-xl uppercase tracking-widest text-white/30 font-display">Direct Transmission</span>
+                      <span className="text-xl uppercase tracking-widest text-white/70 font-display">Direct Transmission</span>
                       <span className="text-2xl font-bold tracking-widest group-hover:translate-x-1 transition-transform">info@mft-sports.com</span>
                     </div>
                   </a>
@@ -63,28 +63,28 @@ export default function Contact() {
               <form className="flex flex-col gap-8 h-full">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                   <div className="flex flex-col gap-3">
-                    <label className="text-xl uppercase tracking-[0.3em] text-white/20 ml-1 font-display">Full Name</label>
+                    <label className="text-xl uppercase tracking-[0.3em] text-white/60 ml-1 font-display">Full Name</label>
                     <input 
                       type="text" 
                       placeholder="Your name"
-                      className="bg-white/5 border border-white/10 rounded-none px-8 py-6 text-2xl font-bold tracking-widest focus:outline-none focus:border-white/40 transition-all placeholder:text-white/10"
+                      className="bg-white/5 border border-white/10 rounded-none px-8 py-6 text-2xl font-bold tracking-widest focus:outline-none focus:border-white/40 transition-all placeholder:text-white/50"
                     />
                   </div>
                   <div className="flex flex-col gap-3">
-                    <label className="text-xl uppercase tracking-[0.3em] text-white/20 ml-1 font-display">Email Address</label>
+                    <label className="text-xl uppercase tracking-[0.3em] text-white/60 ml-1 font-display">Email Address</label>
                     <input 
                       type="email" 
                       placeholder="Your email"
-                      className="bg-white/5 border border-white/10 rounded-none px-8 py-6 text-2xl font-bold tracking-widest focus:outline-none focus:border-white/40 transition-all placeholder:text-white/10"
+                      className="bg-white/5 border border-white/10 rounded-none px-8 py-6 text-2xl font-bold tracking-widest focus:outline-none focus:border-white/40 transition-all placeholder:text-white/50"
                     />
                   </div>
                 </div>
                 <div className="flex flex-col gap-3 flex-grow">
-                  <label className="text-xl uppercase tracking-[0.3em] text-white/20 ml-1 font-display">Message // Request</label>
+                  <label className="text-xl uppercase tracking-[0.3em] text-white/60 ml-1 font-display">Message // Request</label>
                   <textarea 
                     placeholder="How can we help you reach your peak?" 
                     rows={6}
-                    className="bg-white/5 border border-white/10 rounded-none px-8 py-6 text-2xl font-bold tracking-widest focus:outline-none focus:border-white/40 transition-all placeholder:text-white/10 resize-none h-full min-h-[200px]"
+                    className="bg-white/5 border border-white/10 rounded-none px-8 py-6 text-2xl font-bold tracking-widest focus:outline-none focus:border-white/40 transition-all placeholder:text-white/50 resize-none h-full min-h-[200px]"
                   />
                 </div>
                 <button className="w-full py-12 rounded-none bg-white text-black font-bold tracking-[0.3em] text-3xl hover:bg-neutral-200 transition-all active:scale-[0.98] mt-4 shadow-2xl font-display">

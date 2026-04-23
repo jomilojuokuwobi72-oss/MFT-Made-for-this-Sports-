@@ -36,7 +36,7 @@ export default function Navbar() {
             />
           </div>
           <span className="font-display text-2xl tracking-tighter hover:opacity-80 transition hidden sm:block">
-            Made For This<span className="text-white/40">.</span>
+            Made For This<span className="text-white/70">.</span>
           </span>
         </Link>
 
@@ -84,7 +84,7 @@ function NavLink({ href, children }: { href: string; children: React.ReactNode }
   return (
     <Link
       href={href}
-      className="text-xl font-bold text-white/60 hover:text-white transition font-display"
+      className="text-xl font-bold text-white/80 hover:text-white transition font-display"
     >
       {children}
     </Link>

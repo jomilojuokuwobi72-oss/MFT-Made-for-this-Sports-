@@ -29,7 +29,7 @@ export default function Culture() {
     <section id="culture" className="py-24 bg-black text-white relative">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col mb-16">
-          <span className="text-2xl font-bold uppercase tracking-[0.4em] text-white/30 mb-4 font-display">
+          <span className="text-2xl font-bold uppercase tracking-[0.4em] text-white/70 mb-4 font-display">
             Culture & Editorial
           </span>
           <AnimatedText 
@@ -51,7 +51,7 @@ export default function Culture() {
               />
             </div>
             <div className="mt-8">
-              <span className="text-xl font-bold tracking-[0.2em] opacity-40 font-display">{articles[0].category} // {articles[0].date}</span>
+              <span className="text-xl font-bold tracking-[0.2em] opacity-80 font-display">{articles[0].category} // {articles[0].date}</span>
               <h3 className="text-3xl md:text-5xl font-secondary leading-[0.9] mt-2 group-hover:underline underline-offset-8">
                 {articles[0].title}
               </h3>
@@ -70,7 +70,7 @@ export default function Culture() {
                   />
                 </div>
                 <div className="mt-6">
-                  <span className="text-xl font-bold tracking-[0.2em] opacity-40 font-display">{article.category} // {article.date}</span>
+                  <span className="text-xl font-bold tracking-[0.2em] opacity-80 font-display">{article.category} // {article.date}</span>
                   <h3 className="text-2xl font-secondary leading-tight mt-1 group-hover:underline underline-offset-4">
                     {article.title}
                   </h3>

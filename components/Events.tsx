@@ -56,13 +56,13 @@ export default function Events() {
               className="text-8xl md:text-[20rem] lg:text-[24rem] xl:text-[26rem] leading-[0.7] mb-16 font-secondary tracking-tighter"
               staggerDelay={0.06}
             />
-            <p className="text-white/60 max-w-6xl text-3xl md:text-5xl lg:text-6xl leading-[1.1] font-mono tracking-tight font-medium">
+            <p className="text-white/90 max-w-6xl text-3xl md:text-5xl lg:text-6xl leading-[1.1] font-mono tracking-tight font-medium">
               Elite trials, community matches, and cultural pop-ups. <br />
               Don&apos;t miss your moment.
             </p>
           </div>
           <div className="hidden md:block">
-            <span className="text-xl font-bold uppercase tracking-[0.6em] text-white/10 font-display">
+            <span className="text-xl font-bold uppercase tracking-[0.6em] text-white/60 font-display">
               Transmission // 002-X-EVENTS
             </span>
           </div>
@@ -81,13 +81,13 @@ export default function Events() {
             <div className="absolute bottom-0 p-10 flex flex-col gap-4">
               <div className="flex gap-3">
                 {events[0].tags.map(tag => (
-                  <span key={tag} className="text-xl font-bold tracking-[0.2em] border border-white/30 px-3 py-1.5 rounded-none font-display uppercase">{tag}</span>
+                  <span key={tag} className="text-xl font-bold tracking-[0.2em] border border-white/60 px-3 py-1.5 rounded-none font-display uppercase">{tag}</span>
                 ))}
               </div>
               <h3 className="text-4xl md:text-5xl lg:text-6xl font-secondary leading-none tracking-tight">{events[0].title}</h3>
               <div className="flex justify-between items-center mt-6">
-                <span className="text-sm font-bold tracking-[0.2em] text-white/60 font-mono uppercase">{events[0].date}</span>
-                <span className="text-sm font-bold tracking-[0.2em] text-white/60 font-mono uppercase">{events[0].location}</span>
+                <span className="text-sm font-bold tracking-[0.2em] text-white/80 font-mono uppercase">{events[0].date}</span>
+                <span className="text-sm font-bold tracking-[0.2em] text-white/80 font-mono uppercase">{events[0].location}</span>
               </div>
             </div>
           </div>
@@ -102,7 +102,7 @@ export default function Events() {
             <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors" />
             <div className="absolute inset-0 p-10 flex flex-col justify-end">
               <h3 className="text-3xl font-secondary tracking-tight">{events[1].title}</h3>
-              <div className="flex justify-between text-xl font-bold tracking-widest mt-4 text-white/60 font-display uppercase">
+              <div className="flex justify-between text-xl font-bold tracking-widest mt-4 text-white/80 font-display uppercase">
                 <span>{events[1].date}</span>
                 <span>{events[1].location}</span>
               </div>
@@ -119,7 +119,7 @@ export default function Events() {
             <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors" />
             <div className="absolute inset-0 p-8 flex flex-col justify-end">
               <h3 className="text-2xl font-secondary tracking-tight">{events[2].title}</h3>
-              <span className="text-xl font-bold tracking-[0.2em] mt-2 text-white/40 font-display uppercase">{events[2].location}</span>
+              <span className="text-xl font-bold tracking-[0.2em] mt-2 text-white/70 font-display uppercase">{events[2].location}</span>
             </div>
           </div>
 
@@ -130,7 +130,7 @@ export default function Events() {
                 <span className="text-xl font-bold tracking-[0.3em] uppercase font-display">Next Wave</span>
                 <h3 className="text-4xl font-secondary leading-none tracking-tight">Join the Network</h3>
               </div>
-              <p className="text-sm font-bold tracking-tight opacity-70 leading-relaxed font-mono">
+              <p className="text-sm font-bold tracking-tight opacity-90 leading-relaxed font-mono">
                 Be first in line for the MFT Scouting App launch in Q3.
               </p>
               <button
