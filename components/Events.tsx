@@ -89,7 +89,7 @@ export default function Events() {
           </div>
         </div>
 
-        {/* Extended Bento Grid */}
+        {/* Extended Bento Grid test */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[400px]">
           {/* Row 1: Large + Medium */}
           <div className="md:col-span-2 md:row-span-2">
