@@ -29,13 +29,13 @@ export default function Culture() {
     <section id="culture" className="py-24 bg-black text-white relative">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col mb-16">
-          <span className="text-2xl font-bold uppercase tracking-[0.4em] text-white/70 mb-4 font-display">
+          <span className="text-2xl font-bold uppercase text-white/70 mb-4 font-display">
             Culture & Editorial
           </span>
           <AnimatedText 
             text="Stories From The Journey" 
             animationClass="animate-blur-drop" 
-            className="text-5xl md:text-8xl tracking-tighter font-secondary"
+            className="text-h1 font-secondary"
             staggerDelay={0.06}
           />
         </div>
@@ -51,8 +51,8 @@ export default function Culture() {
               />
             </div>
             <div className="mt-8">
-              <span className="text-xl font-bold tracking-[0.2em] opacity-80 font-display">{articles[0].category} // {articles[0].date}</span>
-              <h3 className="text-3xl md:text-5xl font-secondary leading-[0.9] mt-2 group-hover:underline underline-offset-8">
+              <span className="text-xl font-bold opacity-80 font-display">{articles[0].category} // {articles[0].date}</span>
+              <h3 className="text-h2 font-secondary leading-[0.9] mt-2 group-hover:underline underline-offset-8">
                 {articles[0].title}
               </h3>
             </div>
@@ -70,8 +70,8 @@ export default function Culture() {
                   />
                 </div>
                 <div className="mt-6">
-                  <span className="text-xl font-bold tracking-[0.2em] opacity-80 font-display">{article.category} // {article.date}</span>
-                  <h3 className="text-2xl font-secondary leading-tight mt-1 group-hover:underline underline-offset-4">
+                  <span className="text-xl font-bold opacity-80 font-display">{article.category} // {article.date}</span>
+                  <h3 className="text-h3 font-secondary leading-tight mt-1 group-hover:underline underline-offset-4">
                     {article.title}
                   </h3>
                 </div>
@@ -80,7 +80,7 @@ export default function Culture() {
 
             <div className="mt-auto pt-12 border-t border-white/10">
               <a href="#" className="inline-flex items-center gap-4 group">
-                  <span className="text-2xl font-bold tracking-[0.3em] font-display">View Digital Archive</span>
+                  <span className="text-2xl font-bold font-display">View Digital Archive</span>
                  <svg 
                    className="w-4 h-4 transition-transform group-hover:translate-x-2" 
                    viewBox="0 0 24 24" 

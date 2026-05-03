@@ -106,17 +106,17 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
         <div className="relative z-10 text-center flex flex-col items-center">
           {status === "success" ? (
             <div className="py-12">
-              <h2 className="text-5xl md:text-7xl font-secondary tracking-tighter mb-6">YOU&apos;RE IN.</h2>
-              <p className="text-white/80 font-bold uppercase tracking-[0.4em] text-sm">
-                The vanguard awaits. Keep an eye on your transmission.
+              <h2 className="text-h1 font-secondary mb-6">YOU&apos;RE IN.</h2>
+              <p className="text-white/80 font-bold uppercase text-sm">
+                The vanguard awaits. Keep an eye on your inbox.
               </p>
             </div>
           ) : (
             <>
-              <span className="animate-item text-xs sm:text-sm font-bold uppercase tracking-[0.5em] text-white/70 mb-8 block font-display">
+              <span className="animate-item text-xs sm:text-sm font-bold uppercase text-white/70 mb-8 block font-display">
                 Exclusive Early Access
               </span>
-              <h2 className="animate-item text-5xl md:text-8xl lg:text-9xl mb-12 tracking-tighter font-secondary leading-[0.85]">
+              <h2 className="animate-item text-title mb-12 font-secondary leading-[0.85]">
                 JOIN THE <br /> WAITLIST
               </h2>
 
@@ -128,12 +128,12 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                     placeholder="ENTER YOUR EMAIL"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full bg-white/5 border border-white/20 rounded-none px-10 py-8 text-lg font-bold tracking-widest text-center focus:outline-none focus:border-white transition-all placeholder:text-white/50 uppercase"
+                    className="w-full bg-white/5 border border-white/20 rounded-none px-10 py-8 text-lg font-bold text-center focus:outline-none focus:border-white transition-all placeholder:text-white/50 uppercase"
                     disabled={status === "loading"}
                   />
 
                   {status === "error" && (
-                    <p className="absolute -bottom-10 left-0 right-0 text-red-500 text-4xl font-bold uppercase tracking-widest animate-pulse">
+                    <p className="absolute -bottom-10 left-0 right-0 text-red-500 text-4xl font-bold uppercase animate-pulse">
                       {error}
                     </p>
                   )}
@@ -156,7 +156,7 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
               </form>
 
               <p className="animate-item mt-12 text-xl font-bold text-white/90 max-w-xs leading-relaxed font-display">
-                By joining, you agree to our privacy framework and occasional tactical updates.
+                By joining, you agree to our privacy terms and occasional scouting updates.
               </p>
             </>
           )}

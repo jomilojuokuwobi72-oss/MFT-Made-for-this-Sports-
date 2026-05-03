@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Familjen_Grotesk } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -19,20 +19,10 @@ const avaleigh = localFont({
   variable: "--font-avaleigh",
 });
 
-const moho = localFont({
-  src: [
-    {
-      path: "../public/fonts/moho-condensed/moho-std-condensed.otf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../public/fonts/moho-condensed/moho-std-condensed-bold.otf",
-      weight: "700",
-      style: "normal",
-    },
-  ],
-  variable: "--font-moho",
+const familjen = Familjen_Grotesk({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-familjen",
 });
 
 export const metadata: Metadata = {
@@ -50,7 +40,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${avaleigh.variable} ${moho.variable} font-sans antialiased bg-black text-white`}
+        className={`${avaleigh.variable} ${familjen.variable} font-sans antialiased bg-black text-white`}
       >
         <WaitlistProvider>
           {children}

@@ -35,7 +35,7 @@ export default function Navbar() {
               className="h-full w-full object-cover scale-110" 
             />
           </div>
-          <span className="font-display text-2xl tracking-tighter hover:opacity-80 transition hidden sm:block">
+          <span className="font-display text-2xl hover:opacity-80 transition hidden sm:block">
             Made For This<span className="text-white/70">.</span>
           </span>
         </Link>
@@ -53,7 +53,7 @@ export default function Navbar() {
         <div className="flex items-center gap-4">
           <button
             onClick={openWaitlist}
-            className="hidden sm:block text-2xl font-bold uppercase tracking-widest border border-white/20 px-8 py-4 rounded-none hover:bg-white hover:text-black transition-all font-display"
+            className="hidden sm:block text-2xl font-bold uppercase border border-white/20 px-8 py-4 rounded-none hover:bg-white hover:text-black transition-all font-display"
           >
             Join Waitlist
           </button>
