@@ -1,4 +1,5 @@
 import AnimatedText from "@/components/AnimatedText";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export default function About() {
   const pillars = [
@@ -25,8 +26,8 @@ export default function About() {
       )
     },
     {
-      title: "Technology",
-      description: "Our upcoming app tracks performance metrics, allowing scouts to see verified player progression.",
+      title: "Academy",
+      description: "Our digital network tracks performance metrics, allowing scouts to see verified player progression.",
       icon: (
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-8 h-8">
           <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
@@ -37,44 +38,47 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="py-24 bg-black text-white noise-bg overflow-hidden">
+    <section id="about" className="py-48 bg-black text-white noise-bg overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-col lg:flex-row gap-16 lg:items-center">
+        <div className="flex flex-col lg:flex-row gap-24 lg:items-center">
           <div className="lg:w-1/2">
-            <span className="text-2xl font-bold uppercase text-white/70 mb-4 block font-display">
-              Our Mission
-            </span>
-            <AnimatedText 
-              text="Beyond The Pitch" 
-              animationClass="animate-blur-drop" 
-              className="text-h1 mb-8 font-secondary"
-              staggerDelay={0.06}
-            />
-            <p className="text-white/90 text-body-large leading-relaxed font-sans max-w-xl">
-              Made For This is more than a scouting platform. It’s a movement born from 
-              the raw energy of urban football. We bridge the gap between talent 
-              and opportunity through culture, community, and cutting-edge tech.
-            </p>
+            <ScrollReveal animation="fade-in">
+              <span className="text-3xl font-bold uppercase text-white/50 mb-6 block font-secondary tracking-widest">
+                Our Mission // 001
+              </span>
+              <AnimatedText 
+                text="Beyond The Pitch" 
+                animationClass="animate-blur-drop" 
+                className="text-h1 mb-12 font-display italic leading-none"
+                staggerDelay={0.08}
+              />
+              <p className="text-white/90 text-body-large leading-relaxed font-secondary max-w-xl">
+                Made For This is more than a scouting platform. It’s a movement born from 
+                the raw energy of urban football. We bridge the gap between talent 
+                and opportunity through culture, community, and elite development.
+              </p>
+            </ScrollReveal>
           </div>
 
           <div className="lg:w-1/2 relative">
              <div className="absolute -top-20 -right-20 w-64 h-64 bg-white/5 blur-[100px] rounded-full" />
-             <div className="grid grid-cols-1 gap-6">
+             <div className="grid grid-cols-1 gap-8">
                 {pillars.map((pillar, idx) => (
-                  <div 
-                    key={pillar.title} 
-                    className="p-8 rounded-none border border-white/5 bg-white/2 backdrop-blur-sm transition-all hover:bg-white/5 hover:border-white/10 group"
-                  >
-                     <div className="flex items-start gap-6">
-                        <div className="p-3 bg-white/5 rounded-none text-white group-hover:scale-110 transition-transform">
-                          {pillar.icon}
-                        </div>
-                        <div>
-                          <h3 className="text-h3 font-secondary mb-2">{pillar.title}</h3>
-                          <p className="text-white/70 text-xl leading-relaxed">{pillar.description}</p>
-                        </div>
-                     </div>
-                  </div>
+                  <ScrollReveal key={pillar.title} animation="slide-up" delay={idx * 0.15}>
+                    <div 
+                      className="p-10 rounded-none border border-white/5 bg-white/[0.02] backdrop-blur-sm transition-all hover:bg-white/[0.05] hover:border-white/20 group"
+                    >
+                       <div className="flex items-start gap-8">
+                          <div className="p-4 bg-white/5 rounded-none text-white group-hover:scale-110 transition-transform">
+                            {pillar.icon}
+                          </div>
+                          <div>
+                            <h3 className="text-h3 font-secondary mb-3 uppercase tracking-tight">{pillar.title}</h3>
+                            <p className="text-white/60 text-xl leading-relaxed font-medium">{pillar.description}</p>
+                          </div>
+                       </div>
+                    </div>
+                  </ScrollReveal>
                 ))}
              </div>
           </div>

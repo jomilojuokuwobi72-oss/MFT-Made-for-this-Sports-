@@ -63,7 +63,6 @@ export default function Contact() {
               <form className="flex flex-col gap-8 h-full">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                   <div className="flex flex-col gap-3">
-                    <label className="text-xl uppercase text-white/60 ml-1 font-display">Full Name</label>
                     <input 
                       type="text" 
                       placeholder="Your name"
@@ -71,7 +70,6 @@ export default function Contact() {
                     />
                   </div>
                   <div className="flex flex-col gap-3">
-                    <label className="text-xl uppercase text-white/60 ml-1 font-display">Email Address</label>
                     <input 
                       type="email" 
                       placeholder="Your email"
@@ -80,7 +78,6 @@ export default function Contact() {
                   </div>
                 </div>
                 <div className="flex flex-col gap-3 flex-grow">
-                  <label className="text-xl uppercase text-white/60 ml-1 font-display">Message // Request</label>
                   <textarea 
                     placeholder="How can we help you reach your peak?" 
                     rows={6}
