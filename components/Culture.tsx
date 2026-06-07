@@ -1,5 +1,6 @@
 import AnimatedText from "@/components/AnimatedText";
 import ScrollReveal from "@/components/ScrollReveal";
+import RippleImage from "@/components/RippleImage";
 
 export default function Culture() {
   const articles = [
@@ -49,7 +50,7 @@ export default function Culture() {
             <ScrollReveal animation="blur-in">
               <div className="flex flex-col group cursor-pointer">
                 <div className="overflow-hidden rounded-none aspect-4/5 bg-neutral-900 border border-white/5">
-                  <img 
+                  <RippleImage
                     src={articles[0].image} 
                     alt={articles[0].title}
                     className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 grayscale"
@@ -71,7 +72,7 @@ export default function Culture() {
               <ScrollReveal key={article.id} animation="slide-up" delay={idx * 0.2}>
                 <div className="flex flex-col group cursor-pointer">
                   <div className="overflow-hidden rounded-none aspect-video bg-neutral-900 border border-white/5">
-                    <img 
+                    <RippleImage
                       src={article.image} 
                       alt={article.title}
                       className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 grayscale hover:grayscale-0"
