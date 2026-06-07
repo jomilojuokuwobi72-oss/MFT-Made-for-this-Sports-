@@ -73,6 +73,23 @@
 }
 
 @layer components {
+  /* Layered button: collapse the press/sweep/flip to an instant, legible
+     state change when the user prefers reduced motion. */
+  @media (prefers-reduced-motion: reduce) {
+    .btn-layered,
+    .btn-layered * {
+      transition: none !important;
+      transform: none !important;
+    }
+    .btn-layered:hover .btn-sweep,
+    .btn-layered:hover .btn-flip-dup {
+      transform: translateY(0) !important;
+    }
+    .btn-layered:hover .btn-flip-orig {
+      transform: translateY(-100%) !important;
+    }
+  }
+
   .noise-bg {
     position: relative;
   }

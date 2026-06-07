@@ -1,5 +1,6 @@
 import { Instagram, Mail } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
+import Button from "./ui/Button";
 
 export default function Contact() {
   return (
@@ -84,9 +85,14 @@ export default function Contact() {
                     className="bg-white/5 border border-white/10 rounded-none px-8 py-6 text-2xl font-bold focus:outline-none focus:border-white/40 transition-all placeholder:text-white/50 resize-none h-full min-h-[200px]"
                   />
                 </div>
-                <button className="w-full py-12 rounded-none bg-white text-black font-bold text-2xl hover:bg-neutral-200 transition-all active:scale-[0.98] mt-4 shadow-2xl font-display">
+                <Button
+                  type="submit"
+                  variant="solid"
+                  fullWidth
+                  className="mt-4 shadow-2xl [&_.btn-face]:py-12"
+                >
                   Submit Application
-                </button>
+                </Button>
               </form>
             </ScrollReveal>
           </div>

@@ -2,6 +2,7 @@
 
 import AnimatedText from "@/components/AnimatedText";
 import { useWaitlist } from "./WaitlistProvider";
+import Button from "./ui/Button";
 
 export default function Hero() {
   const { openWaitlist } = useWaitlist();
@@ -52,21 +53,18 @@ export default function Hero() {
           </div>
 
           <div className="mt-8 ml-4 self-start animate-slide-up" style={{ animationDelay: '1s', opacity: 0, animationFillMode: 'forwards' }}>
-            <button
+            <Button
               onClick={openWaitlist}
-              className="group relative inline-flex items-center justify-center bg-white text-black px-16 py-8 font-bold text-4xl transition-all hover:bg-white/90 active:scale-95 rounded-none font-display tracking-tight"
+              variant="solid"
+              size="lg"
+              icon={
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              }
             >
               Join the Journey
-              <svg
-                className="ml-4 w-8 h-8 transition-transform group-hover:translate-x-1"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </button>
+            </Button>
           </div>
         </div>
       </div>

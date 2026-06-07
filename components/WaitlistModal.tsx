@@ -1,8 +1,9 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { X, ArrowRight, Loader2 } from "lucide-react";
+import { X, ArrowRight } from "lucide-react";
 import { joinWaitlist } from "@/app/actions/waitlist";
+import Button from "./ui/Button";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
@@ -139,20 +140,16 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                   )}
                 </div>
 
-                <button
+                <Button
                   type="submit"
-                  disabled={status === "loading"}
-                  className="animate-item w-full mt-16 py-8 text-2xl bg-white text-black font-bold hover:bg-neutral-200 transition-all active:scale-[0.98] disabled:opacity-50 flex items-center justify-center gap-4 rounded-none font-display"
+                  variant="solid"
+                  fullWidth
+                  loading={status === "loading"}
+                  icon={<ArrowRight />}
+                  className="animate-item mt-16"
                 >
-                  {status === "loading" ? (
-                    <Loader2 className="w-6 h-6 animate-spin" />
-                  ) : (
-                    <>
-                      Secure Spotlight
-                      <ArrowRight className="w-6 h-6" />
-                    </>
-                  )}
-                </button>
+                  Secure Spotlight
+                </Button>
               </form>
 
               <p className="animate-item mt-12 text-xl font-bold text-white/90 max-w-xs leading-relaxed font-display">

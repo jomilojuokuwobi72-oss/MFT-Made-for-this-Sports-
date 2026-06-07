@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useWaitlist } from "./WaitlistProvider";
+import Button from "./ui/Button";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -29,14 +30,14 @@ export default function Navbar() {
           className="flex items-center gap-3 group"
         >
           <div className="relative h-10 w-10 overflow-hidden rounded-none border border-white/10 group-hover:border-white/30 transition-colors">
-            <img 
-              src="/images/mft-logo.png" 
-              alt="MFT Logo" 
-              className="h-full w-full object-cover scale-110" 
+            <img
+              src="/images/mft-logo.png"
+              alt="MFT Logo"
+              className="h-full w-full object-cover scale-110"
             />
           </div>
           <span className="font-display text-2xl hover:opacity-80 transition hidden sm:block">
-            Made For This<span className="text-white/70">.</span>
+            Made4This<span className="text-white/70">.</span>
           </span>
         </Link>
 
@@ -51,12 +52,13 @@ export default function Navbar() {
 
         {/* Technical Call to Action */}
         <div className="flex items-center gap-4">
-          <button
+          <Button
             onClick={openWaitlist}
-            className="hidden sm:block text-2xl font-bold uppercase border border-white/20 px-8 py-4 rounded-none hover:bg-white hover:text-black transition-all font-display"
+            variant="solid"
+            className="hidden sm:inline-flex"
           >
             Join Waitlist
-          </button>
+          </Button>
           <button className="md:hidden text-white">
             <svg
               xmlns="http://www.w3.org/2000/svg"

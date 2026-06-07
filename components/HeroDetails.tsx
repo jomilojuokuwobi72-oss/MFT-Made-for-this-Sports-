@@ -2,6 +2,7 @@
 
 import AnimatedText from "./AnimatedText";
 import { useWaitlist } from "./WaitlistProvider";
+import Button from "./ui/Button";
 
 export default function HeroDetails() {
   const { openWaitlist } = useWaitlist();
@@ -20,12 +21,14 @@ export default function HeroDetails() {
           </div>
 
           <div className="animate-slide-up opacity-0" style={{ animationDelay: '2.5s', animationFillMode: 'forwards' }}>
-            <button
+            <Button
               onClick={openWaitlist}
-              className="inline-flex items-center justify-center border border-white/20 px-16 py-8 font-display font-bold tracking-[0.2em] text-2xl text-white transition-all hover:bg-white hover:text-black active:scale-95 rounded-none uppercase"
+              variant="solid"
+              size="lg"
+              className="tracking-[0.2em]"
             >
               Get Scouted
-            </button>
+            </Button>
           </div>
         </div>
       </div>

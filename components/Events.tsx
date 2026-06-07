@@ -3,6 +3,7 @@
 import AnimatedText from "@/components/AnimatedText";
 import { useWaitlist } from "@/components/WaitlistProvider";
 import ScrollReveal from "@/components/ScrollReveal";
+import Button from "@/components/ui/Button";
 
 export default function Events() {
   const { openWaitlist } = useWaitlist();
@@ -165,12 +166,15 @@ export default function Events() {
                 <p className="text-sm font-bold opacity-90 leading-relaxed font-mono">
                   Be first in line for the MFT Scouting App launch in Q3.
                 </p>
-                <button
+                <Button
                   onClick={openWaitlist}
-                  className="w-full py-4 border-2 border-black font-bold text-xl uppercase hover:bg-black hover:text-white transition-all font-display active:scale-95"
+                  variant="solid"
+                  tone="onLight"
+                  fullWidth
+                  className="text-xl"
                 >
                   Register
-                </button>
+                </Button>
               </div>
             </ScrollReveal>
           </div>
