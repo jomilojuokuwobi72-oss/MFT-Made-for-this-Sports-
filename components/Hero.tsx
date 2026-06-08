@@ -28,16 +28,16 @@ export default function Hero() {
       <div className="absolute inset-0 z-10 opacity-20 bg-[linear-gradient(to_right,#ffffff10_1px,transparent_1px),linear-gradient(to_bottom,#ffffff10_1px,transparent_1px)] bg-size-[40px_40px]" />
 
       {/* Content */}
-      <div className="relative z-20 mx-auto max-w-7xl px-6 pt-40 pb-40 md:pt-52 md:pb-52 flex flex-col justify-end min-h-screen">
+      <div className="relative z-20 mx-auto max-w-7xl px-4 sm:px-6 pt-40 pb-32 md:pt-52 md:pb-52 flex flex-col justify-end min-h-screen">
 
-        <div className="flex flex-col w-fit group">
-          <div className="font-display leading-[0.8] text-8xl sm:text-9xl md:text-[11rem] lg:text-[14rem] xl:text-[17rem] tracking-tighter">
+        <div className="flex flex-col w-full sm:w-fit group">
+          <div className="font-display leading-[0.85] text-[clamp(3.25rem,14vw,17rem)] tracking-tighter">
             <AnimatedText
               text="Made For"
               animationClass="animate-slide-up"
               className="block italic"
             />
-            <div className="flex flex-wrap items-baseline gap-x-8">
+            <div className="flex flex-wrap items-baseline gap-x-3 sm:gap-x-8">
               <AnimatedText
                 text="This"
                 animationClass="animate-slide-up"

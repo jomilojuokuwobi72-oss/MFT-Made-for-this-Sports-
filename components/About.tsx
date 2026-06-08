@@ -39,7 +39,7 @@ export default function About() {
 
   return (
     <section id="about" className="py-28 sm:py-40 md:py-48 bg-black text-white noise-bg overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 lg:items-center">
           <div className="lg:w-1/2">
             <ScrollReveal animation="fade-in">
@@ -65,10 +65,10 @@ export default function About() {
              <div className="grid grid-cols-1 gap-8">
                 {pillars.map((pillar, idx) => (
                   <ScrollReveal key={pillar.title} animation="slide-up" delay={idx * 0.15}>
-                    <div 
-                      className="p-10 rounded-none border border-white/5 bg-white/[0.02] backdrop-blur-sm transition-all hover:bg-white/[0.05] hover:border-white/20 group"
+                    <div
+                      className="p-6 sm:p-10 rounded-none border border-white/5 bg-white/[0.02] backdrop-blur-sm transition-all hover:bg-white/[0.05] hover:border-white/20 group"
                     >
-                       <div className="flex items-start gap-8">
+                       <div className="flex items-start gap-5 sm:gap-8">
                           <div className="p-4 bg-white/5 rounded-none text-white group-hover:scale-110 transition-transform">
                             {pillar.icon}
                           </div>

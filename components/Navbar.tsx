@@ -41,7 +41,7 @@ export default function Navbar() {
         : "py-6 bg-transparent"
         }`}
     >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
         <Link
           href="/"
           className="flex items-center gap-3 group"
@@ -72,7 +72,8 @@ export default function Navbar() {
           <Button
             onClick={openWaitlist}
             variant="solid"
-            className="hidden sm:inline-flex"
+            size="sm"
+            className="hidden md:inline-flex"
           >
             Join Waitlist
           </Button>

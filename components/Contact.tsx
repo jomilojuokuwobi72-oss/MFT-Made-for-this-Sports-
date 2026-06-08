@@ -5,8 +5,8 @@ import ContactForm from "./ContactForm";
 export default function Contact() {
   return (
     <section id="contact" className="py-28 sm:py-40 md:py-48 bg-black text-white relative noise-bg overflow-hidden">
-      <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
-        <div className="rounded-none border border-white/5 bg-white/[0.02] p-8 md:p-20 relative overflow-hidden backdrop-blur-3xl">
+      <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 md:px-12">
+        <div className="rounded-none border border-white/5 bg-white/[0.02] p-5 sm:p-8 md:p-20 relative overflow-hidden backdrop-blur-3xl">
           {/* Background Highlight */}
           <div className="absolute -bottom-24 -left-24 w-[32rem] h-[32rem] bg-white/[0.02] blur-[150px] rounded-full" />
           

@@ -5,7 +5,7 @@ import { Instagram, Mail, Twitter } from "lucide-react";
 export default function Footer() {
   return (
     <footer className="py-28 sm:py-40 md:py-64 bg-black text-white border-t border-white/5 noise-bg overflow-hidden">
-      <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
+      <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-24 items-start">
           <div className="lg:col-span-7">
             <ScrollReveal animation="fade-in">

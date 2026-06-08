@@ -9,7 +9,7 @@ export default function HeroDetails() {
 
   return (
     <section className="py-28 sm:py-40 md:py-48 bg-black text-white relative border-t border-white/5 noise-bg">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col gap-12">
           <div className="max-w-6xl">
             <AnimatedText
