@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { Fragment, useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -24,7 +24,7 @@ export default function AnimatedText({
   duration = 0.8,
 }: AnimatedTextProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const chars = text.split("");
+  const words = text.split(" ");
 
   useGSAP(() => {
     if (!containerRef.current) return;
@@ -58,13 +58,22 @@ export default function AnimatedText({
 
   return (
     <div ref={containerRef} className={`${className} perspective-[1000px]`}>
-      {chars.map((char, index) => (
-        <span
-          key={index}
-          className="char inline-block whitespace-pre will-change-transform"
-        >
-          {char}
-        </span>
+      {words.map((word, wordIndex) => (
+        <Fragment key={wordIndex}>
+          {/* Each word is an atomic inline-block so it never breaks mid-word;
+              spaces between words remain normal break opportunities. */}
+          <span className="inline-block whitespace-nowrap">
+            {word.split("").map((char, charIndex) => (
+              <span
+                key={charIndex}
+                className="char inline-block will-change-transform"
+              >
+                {char}
+              </span>
+            ))}
+          </span>
+          {wordIndex < words.length - 1 ? " " : null}
+        </Fragment>
       ))}
     </div>
   );

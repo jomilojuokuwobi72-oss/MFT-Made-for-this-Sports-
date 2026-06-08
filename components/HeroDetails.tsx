@@ -20,12 +20,12 @@ export default function HeroDetails() {
             />
           </div>
 
-          <div className="animate-slide-up opacity-0 w-full sm:w-auto" style={{ animationDelay: '2.5s', animationFillMode: 'forwards' }}>
+          <div className="animate-slide-up opacity-0 self-start" style={{ animationDelay: '2.5s', animationFillMode: 'forwards' }}>
             <Button
               onClick={openWaitlist}
               variant="solid"
-              size="lg"
-              className="tracking-[0.2em] w-full sm:w-auto"
+              size="sm"
+              className="tracking-[0.2em] sm:[&_.btn-face]:px-16 sm:[&_.btn-face]:py-8 sm:[&_.btn-face]:text-4xl sm:[&_.btn-face]:gap-4"
             >
               Get Scouted
             </Button>
