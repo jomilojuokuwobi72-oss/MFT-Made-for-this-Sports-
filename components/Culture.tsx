@@ -28,7 +28,7 @@ export default function Culture() {
   ];
 
   return (
-    <section id="culture" className="py-48 bg-black text-white relative border-t border-white/5 noise-bg">
+    <section id="culture" className="py-28 sm:py-40 md:py-48 bg-black text-white relative border-t border-white/5 noise-bg">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col mb-24">
           <ScrollReveal animation="fade-in">

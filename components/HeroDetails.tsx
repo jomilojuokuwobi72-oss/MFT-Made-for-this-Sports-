@@ -8,7 +8,7 @@ export default function HeroDetails() {
   const { openWaitlist } = useWaitlist();
 
   return (
-    <section className="py-48 bg-black text-white relative border-t border-white/5 noise-bg">
+    <section className="py-28 sm:py-40 md:py-48 bg-black text-white relative border-t border-white/5 noise-bg">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col gap-12">
           <div className="max-w-6xl">
@@ -20,12 +20,12 @@ export default function HeroDetails() {
             />
           </div>
 
-          <div className="animate-slide-up opacity-0" style={{ animationDelay: '2.5s', animationFillMode: 'forwards' }}>
+          <div className="animate-slide-up opacity-0 w-full sm:w-auto" style={{ animationDelay: '2.5s', animationFillMode: 'forwards' }}>
             <Button
               onClick={openWaitlist}
               variant="solid"
               size="lg"
-              className="tracking-[0.2em]"
+              className="tracking-[0.2em] w-full sm:w-auto"
             >
               Get Scouted
             </Button>

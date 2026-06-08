@@ -1,10 +1,10 @@
 import { Instagram, Mail } from "lucide-react";
 import ScrollReveal from "./ScrollReveal";
-import Button from "./ui/Button";
+import ContactForm from "./ContactForm";
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-48 bg-black text-white relative noise-bg overflow-hidden">
+    <section id="contact" className="py-28 sm:py-40 md:py-48 bg-black text-white relative noise-bg overflow-hidden">
       <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
         <div className="rounded-none border border-white/5 bg-white/[0.02] p-8 md:p-20 relative overflow-hidden backdrop-blur-3xl">
           {/* Background Highlight */}
@@ -16,10 +16,10 @@ export default function Contact() {
                 <span className="text-2xl font-bold uppercase text-white/70 mb-8 block font-display">
                   Get Scouted // Partner With Us
                 </span>
-                <h2 className="text-title mb-12 font-secondary leading-[0.85]">
+                <h2 className="text-5xl sm:text-6xl md:text-7xl mb-10 font-secondary leading-[0.9] uppercase">
                   Ready For <br /> Your Moment?
                 </h2>
-                <p className="text-white/80 text-h3 leading-snug max-w-lg font-sans">
+                <p className="text-white/80 text-xl sm:text-2xl leading-snug max-w-lg font-sans">
                   Whether you're a player looking for a trial, a scout seeking talent, 
                   or a brand interested in the MFT culture — we want to hear from you.
                 </p>
@@ -36,9 +36,9 @@ export default function Contact() {
                     <div className="w-14 h-14 border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all rounded-none">
                       <Instagram className="w-5 h-5" />
                     </div>
-                    <div className="flex flex-col">
-                      <span className="text-xl uppercase text-white/70 font-display">Follow the Journey</span>
-                      <span className="text-2xl font-bold group-hover:translate-x-1 transition-transform">@made4thisports</span>
+                    <div className="flex flex-col min-w-0">
+                      <span className="text-lg sm:text-xl uppercase text-white/70 font-display">Follow the Journey</span>
+                      <span className="text-xl sm:text-2xl font-bold wrap-break-word group-hover:translate-x-1 transition-transform">@made4thisports</span>
                     </div>
                   </a>
                 </ScrollReveal>
@@ -49,11 +49,11 @@ export default function Contact() {
                     className="flex items-center gap-6 group"
                   >
                     <div className="w-14 h-14 border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all rounded-none">
-                      <Mail className="w-5 h-5" />
+                      <Mail className="w-5 h-5 shrink-0" />
                     </div>
-                    <div className="flex flex-col">
-                      <span className="text-xl uppercase text-white/70 font-display">Direct Contact</span>
-                      <span className="text-2xl font-bold group-hover:translate-x-1 transition-transform">info@mft-sports.com</span>
+                    <div className="flex flex-col min-w-0">
+                      <span className="text-lg sm:text-xl uppercase text-white/70 font-display">Direct Contact</span>
+                      <span className="text-xl sm:text-2xl font-bold wrap-break-word group-hover:translate-x-1 transition-transform">info@mft-sports.com</span>
                     </div>
                   </a>
                 </ScrollReveal>
@@ -61,39 +61,7 @@ export default function Contact() {
             </div>
 
             <ScrollReveal animation="slide-up" delay={0.4} className="h-full">
-              <form className="flex flex-col gap-8 h-full">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-                  <div className="flex flex-col gap-3">
-                    <input 
-                      type="text" 
-                      placeholder="Your name"
-                      className="bg-white/5 border border-white/10 rounded-none px-8 py-6 text-2xl font-bold focus:outline-none focus:border-white/40 transition-all placeholder:text-white/50"
-                    />
-                  </div>
-                  <div className="flex flex-col gap-3">
-                    <input 
-                      type="email" 
-                      placeholder="Your email"
-                      className="bg-white/5 border border-white/10 rounded-none px-8 py-6 text-2xl font-bold focus:outline-none focus:border-white/40 transition-all placeholder:text-white/50"
-                    />
-                  </div>
-                </div>
-                <div className="flex flex-col gap-3 flex-grow">
-                  <textarea 
-                    placeholder="How can we help you reach your peak?" 
-                    rows={6}
-                    className="bg-white/5 border border-white/10 rounded-none px-8 py-6 text-2xl font-bold focus:outline-none focus:border-white/40 transition-all placeholder:text-white/50 resize-none h-full min-h-[200px]"
-                  />
-                </div>
-                <Button
-                  type="submit"
-                  variant="solid"
-                  fullWidth
-                  className="mt-4 shadow-2xl [&_.btn-face]:py-12"
-                >
-                  Submit Application
-                </Button>
-              </form>
+              <ContactForm />
             </ScrollReveal>
           </div>
         </div>

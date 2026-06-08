@@ -69,7 +69,7 @@ export default function Events() {
   ];
 
   return (
-    <section id="events" className="py-48 bg-black text-white noise-bg">
+    <section id="events" className="py-28 sm:py-40 md:py-48 bg-black text-white noise-bg">
       <div className="max-w-screen-2xl mx-auto px-6">
         <div className="flex flex-col gap-12 mb-48">
           <div>

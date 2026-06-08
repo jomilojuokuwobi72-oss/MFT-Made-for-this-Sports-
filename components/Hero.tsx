@@ -52,11 +52,12 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="mt-8 ml-4 self-start animate-slide-up" style={{ animationDelay: '1s', opacity: 0, animationFillMode: 'forwards' }}>
+          <div className="mt-8 sm:ml-4 self-stretch sm:self-start w-full sm:w-auto animate-slide-up" style={{ animationDelay: '1s', opacity: 0, animationFillMode: 'forwards' }}>
             <Button
               onClick={openWaitlist}
               variant="solid"
               size="lg"
+              className="w-full sm:w-auto"
               icon={
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M5 12h14M12 5l7 7-7 7" />

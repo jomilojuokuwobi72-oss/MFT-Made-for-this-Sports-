@@ -4,18 +4,18 @@ import { Instagram, Mail, Twitter } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="py-48 md:py-64 bg-black text-white border-t border-white/5 noise-bg overflow-hidden">
+    <footer className="py-28 sm:py-40 md:py-64 bg-black text-white border-t border-white/5 noise-bg overflow-hidden">
       <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-24 items-start">
           <div className="lg:col-span-7">
             <ScrollReveal animation="fade-in">
               <Link
                 href="/"
-                className="font-secondary text-title hover:opacity-80 transition block mb-12"
+                className="font-secondary text-5xl sm:text-7xl uppercase hover:opacity-80 transition block mb-10"
               >
                 Made For This<span className="text-white/40">.</span>
               </Link>
-              <p className="text-h3 font-sans text-white/70 max-w-xl leading-snug">
+              <p className="text-2xl sm:text-3xl font-sans text-white/70 max-w-xl leading-snug">
                 The Journey is the Destination. <br />
                 A global football movement born from the raw energy of urban talent.
               </p>
@@ -59,7 +59,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-64 pt-16 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-12 text-xl font-bold text-white/50 uppercase font-display">
+        <div className="mt-28 md:mt-64 pt-16 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 md:gap-12 text-base sm:text-xl font-bold text-white/50 uppercase font-display">
           <ScrollReveal animation="fade-in">
             <span>&copy; 2025 Made For This Sports.</span>
           </ScrollReveal>

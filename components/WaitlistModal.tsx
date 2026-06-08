@@ -92,16 +92,16 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
       {/* Modal Content */}
       <div 
         ref={modalRef}
-        className="relative w-full max-w-4xl bg-black border border-white/20 p-12 md:p-24 overflow-hidden rounded-none shadow-2xl"
+        className="relative w-full max-w-4xl bg-black border border-white/20 p-6 py-10 sm:p-12 md:p-20 overflow-hidden rounded-none shadow-2xl"
       >
         {/* Decorative Grid */}
         <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#ffffff10_1px,transparent_1px),linear-gradient(to_bottom,#ffffff10_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
 
         <button
           onClick={onClose}
-          className="absolute top-8 right-8 text-white/70 hover:text-white transition-colors z-20"
+          className="absolute top-5 right-5 sm:top-8 sm:right-8 text-white/70 hover:text-white transition-colors z-20"
         >
-          <X className="w-8 h-8" />
+          <X className="w-6 h-6 sm:w-8 sm:h-8" />
         </button>
 
         <div className="relative z-10 text-center flex flex-col items-center">
@@ -114,11 +114,11 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
             </div>
           ) : (
             <>
-              <span className="animate-item text-xs sm:text-sm font-bold uppercase text-white/70 mb-8 block font-display">
+              <span className="animate-item text-sm sm:text-base font-bold uppercase tracking-widest text-white/70 mb-6 block font-display">
                 Exclusive Early Access
               </span>
-              <h2 className="animate-item text-title mb-12 font-secondary leading-[0.85]">
-                JOIN THE <br /> WAITLIST
+              <h2 className="animate-item text-6xl sm:text-7xl md:text-8xl mb-10 font-secondary leading-[0.85] uppercase">
+                Join the <br /> Waitlist
               </h2>
 
               <form onSubmit={handleSubmit} className="w-full max-w-2xl mt-8">
@@ -129,12 +129,12 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                     placeholder="ENTER YOUR EMAIL"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full bg-white/5 border border-white/20 rounded-none px-10 py-8 text-lg font-bold text-center focus:outline-none focus:border-white transition-all placeholder:text-white/50 uppercase"
+                    className="w-full bg-white/5 border border-white/20 rounded-none px-6 py-5 sm:px-10 sm:py-7 text-base sm:text-lg font-bold text-center focus:outline-none focus:border-white transition-all placeholder:text-white/50 uppercase"
                     disabled={status === "loading"}
                   />
 
                   {status === "error" && (
-                    <p className="absolute -bottom-10 left-0 right-0 text-red-500 text-4xl font-bold uppercase animate-pulse">
+                    <p className="absolute -bottom-8 left-0 right-0 text-red-500 text-sm sm:text-base font-bold uppercase animate-pulse">
                       {error}
                     </p>
                   )}
@@ -146,13 +146,13 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                   fullWidth
                   loading={status === "loading"}
                   icon={<ArrowRight />}
-                  className="animate-item mt-16"
+                  className="animate-item mt-12"
                 >
                   Secure Spotlight
                 </Button>
               </form>
 
-              <p className="animate-item mt-12 text-xl font-bold text-white/90 max-w-xs leading-relaxed font-display">
+              <p className="animate-item mt-10 text-base sm:text-xl font-bold text-white/70 max-w-xs leading-relaxed font-display">
                 By joining, you agree to our privacy terms and occasional scouting updates.
               </p>
             </>
