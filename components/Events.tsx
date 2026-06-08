@@ -98,7 +98,7 @@ export default function Events() {
             <ScrollReveal animation="blur-in" className="h-full">
               <div className="relative h-full group overflow-hidden rounded-none border border-white/10 bg-white/5">
                 <RippleImage
-                  src={events[0].image}
+                  src={events[0].image!}
                   alt={events[0].title}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale"
                 />
@@ -123,7 +123,7 @@ export default function Events() {
             <ScrollReveal animation="slide-up" delay={0.1} className="h-full">
               <div className="relative h-full group overflow-hidden rounded-none border border-white/10 bg-white/5">
                 <RippleImage
-                  src={events[1].image}
+                  src={events[1].image!}
                   alt={events[1].title}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
@@ -144,7 +144,7 @@ export default function Events() {
             <ScrollReveal animation="scale-in" delay={0.2} className="h-full">
               <div className="relative h-full group overflow-hidden rounded-none border border-white/10 bg-white/5">
                 <RippleImage
-                  src={events[2].image}
+                  src={events[2].image!}
                   alt={events[2].title}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale"
                 />
@@ -206,7 +206,7 @@ export default function Events() {
             <ScrollReveal animation="slide-up" delay={0.1} className="h-full">
               <div className="relative h-full group overflow-hidden rounded-none border border-white/10 bg-white/5">
                 <RippleImage
-                  src={events[4].image}
+                  src={events[4].image!}
                   alt={events[4].title}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
@@ -224,7 +224,7 @@ export default function Events() {
             <ScrollReveal animation="blur-in" className="h-full">
               <div className="relative h-full group overflow-hidden rounded-none border border-white/10 bg-white/5">
                 <RippleImage
-                  src={events[3].image}
+                  src={events[3].image!}
                   alt={events[3].title}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale"
                 />
@@ -244,7 +244,7 @@ export default function Events() {
             <ScrollReveal animation="scale-in" delay={0.2} className="h-full">
               <div className="relative h-full group overflow-hidden rounded-none border border-white/10 bg-white/5">
                 <RippleImage
-                  src={events[5].image}
+                  src={events[5].image!}
                   alt={events[5].title}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
